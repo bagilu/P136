@@ -5,7 +5,39 @@ function status(s){$('info').textContent=s}
 function draw(){river.clearLayers();const current=edges.find(x=>x.id===selected),active=new Set();if(current){active.add(current.id);if(kind==='demo'&&$('mode').value==='upstream'){let changed=true;while(changed){changed=false;for(const [id,down] of parent)if(active.has(down)&&!active.has(id)){active.add(id);changed=true}}}else if($('mode').value==='name'&&current.name!=='未命名'){for(const e of edges)if(e.name===current.name)active.add(e.id)}}
 for(const e of edges){const on=active.has(e.id);L.polyline(e.coords,{color:on?'#0476ba':'#8ac8e6',weight:on?5:3,opacity:on?1:.85}).bindTooltip(e.name+' · '+e.id).on('click',()=>{selected=e.id;draw()}).addTo(river)}
 if(current)status(current.name+'：已標示 '+active.size+' 段。'+(kind==='real'?'同名河段不代表已驗證的上游關係。':'虛構示範河網。'))}
-function demo(){kind='demo';selected=null;const p={a:[25.17,121.44],b:[25.16,121.49],c:[25.13,121.53],d:[25.20,121.57],e:[25.09,121.59],f:[25.22,121.61],g:[25.13,121.64]};edges=[{id:'A',name:'示範主流',coords:[p.a,p.b]},{id:'B',name:'示範主流',coords:[p.b,p.c]},{id:'C',name:'示範支流',coords:[p.b,p.d]},{id:'D',name:'示範主流',coords:[p.c,p.e]},{id:'E',name:'示範支流',coords:[p.c,p.g]},{id:'F',name:'示範支流',coords:[p.d,p.f]}];parent=new Map([['B','A'],['C','A'],['D','B'],['E','B'],['F','C']]);$('mode').value='upstream';draw();map.fitBounds(L.latLngBounds(edges.flatMap(e=>e.coords)));status('已載入 6 段虛構河網，可點選測試上游追溯。')}
-async function real(){kind='real';selected=null;parent.clear();const query='[out:json][timeout:35];way["waterway"~"^(river|stream)$"]('+$('region').value+');out geom;';status('正在向 OpenStreetMap / Overpass 查詢真實河道…');$('load').disabled=true;
-try{const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),55000);let res;try{res=await fetch('https://overpass.kumi.systems/api/interpreter',{method:'POST',body:new URLSearchParams({data:query}),signal:ctl.signal})}finally{clearTimeout(timer)}if(!res.ok)throw Error('HTTP '+res.status);const data=await res.json();edges=(data.elements||[]).filter(x=>x.type==='way'&&x.geometry?.length>1).slice(0,9000).map(x=>({id:String(x.id),name:x.tags?.name||'未命名',coords:x.geometry.map(p=>[p.lat,p.lon])}));if(!edges.length)throw Error('未取得河段');$('mode').value='name';draw();map.fitBounds(L.latLngBounds(edges.flatMap(e=>e.coords)),{maxZoom:12});status('已載入 '+edges.length+' 段真實河道。點選可標示同名河段；上游拓樸尚未驗證。')}catch(e){edges=[];draw();status('真實資料載入失敗：'+e.message+'。可稍後重試或切換示範。')}finally{$('load').disabled=false}}
+function demo(){requestSequence++;$('load').disabled=false;kind='demo';selected=null;const p={a:[25.17,121.44],b:[25.16,121.49],c:[25.13,121.53],d:[25.20,121.57],e:[25.09,121.59],f:[25.22,121.61],g:[25.13,121.64]};edges=[{id:'A',name:'示範主流',coords:[p.a,p.b]},{id:'B',name:'示範主流',coords:[p.b,p.c]},{id:'C',name:'示範支流',coords:[p.b,p.d]},{id:'D',name:'示範主流',coords:[p.c,p.e]},{id:'E',name:'示範支流',coords:[p.c,p.g]},{id:'F',name:'示範支流',coords:[p.d,p.f]}];parent=new Map([['B','A'],['C','A'],['D','B'],['E','B'],['F','C']]);$('mode').value='upstream';draw();map.fitBounds(L.latLngBounds(edges.flatMap(e=>e.coords)));status('已載入 6 段虛構河網，可點選測試上游追溯。')}
+let requestSequence=0;
+const endpoints=['https://overpass.private.coffee/api/interpreter','https://overpass.kumi.systems/api/interpreter','https://overpass-api.de/api/interpreter'];
+async function queryOverpass(query,seq){
+ let lastError;
+ for(let i=0;i<endpoints.length;i++){
+  if(seq!==requestSequence)throw Error('已取消舊查詢');
+  const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),18000);
+  status('正在查詢河道（資料來源 '+(i+1)+'/'+endpoints.length+'）…');
+  try{
+   const res=await fetch(endpoints[i],{method:'POST',body:new URLSearchParams({data:query}),signal:ctl.signal});
+   if(!res.ok)throw Error('伺服器回應 HTTP '+res.status);
+   const data=await res.json();
+   if(!Array.isArray(data.elements))throw Error('伺服器回傳資料格式不符');
+   return data;
+  }catch(e){lastError=e; if(seq!==requestSequence)throw Error('已取消舊查詢');}
+  finally{clearTimeout(timer)}
+ }
+ throw Error('三個公開圖資伺服器皆未能回應（可能繁忙或連線逾時）。'+(lastError?.message||''));
+}
+async function real(){
+ const seq=++requestSequence;kind='real';selected=null;parent.clear();
+ const query='[out:json][timeout:15];way["waterway"~"^(river|stream)$"]('+$('region').value+');out geom;';
+ $('load').disabled=true;
+ try{
+  const data=await queryOverpass(query,seq);
+  if(seq!==requestSequence)return;
+  const result=(data.elements||[]).filter(x=>x.type==='way'&&x.geometry?.length>1).slice(0,9000).map(x=>({id:String(x.id),name:x.tags?.name||'未命名',coords:x.geometry.map(p=>[p.lat,p.lon])}));
+  if(!result.length)throw Error('所選範圍查無河段');
+  edges=result;$('mode').value='name';draw();
+  map.fitBounds(L.latLngBounds(edges.flatMap(e=>e.coords)),{maxZoom:12});
+  status('已載入 '+edges.length+' 段真實河道。點選可標示同名河段；上游拓樸尚未驗證。');
+ }catch(e){if(seq!==requestSequence)return;edges=[];draw();status('真實資料載入失敗：'+e.message+'。可稍後重試或切換示範。')}
+ finally{if(seq===requestSequence)$('load').disabled=false}
+}
 $('source').addEventListener('change',()=>{$('source').value==='demo'?demo():real()});$('load').addEventListener('click',()=>{$('source').value==='demo'?demo():real()});$('region').addEventListener('change',()=>{if($('source').value==='real')real()});$('mode').addEventListener('change',draw);$('reset').addEventListener('click',()=>{selected=null;draw();status('已清除選取。')});$('showBase').addEventListener('change',e=>e.target.checked?base.addTo(map):map.removeLayer(base));real();
