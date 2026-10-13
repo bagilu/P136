@@ -31,23 +31,35 @@ def main():
    if len(points)<2:continue
    reaches[rid]={'id':rid,'downstream_id':dn,'main_riv':int(props.get('MAIN_RIV') or 0),'points':[[round(x,6),round(y,6)] for x,y in points]}
  if len(reaches)<20:raise ValueError('too few river reaches in northern Taiwan crop')
- # Candidate outlet: a reach with no NEXT_DOWN in crop, close to Tamsui mouth.
+ # Evaluate ALL downstream-terminal reaches near the mouth, not merely the nearest.
+ # A nearby tiny coastal stream must never silently become the Tamsui basin.
+ upstream=collections.defaultdict(list)
+ for reach in reaches.values():
+  if reach['downstream_id'] in reaches:upstream[reach['downstream_id']].append(reach['id'])
+ def trace(root):
+  visited=set();pending=[root]
+  while pending:
+   rid=pending.pop()
+   if rid in visited:raise ValueError('cycle or duplicate upstream edge at '+str(rid))
+   visited.add(rid);pending.extend(upstream[rid])
+  return visited
  candidates=[]
  for reach in reaches.values():
   if reach['downstream_id'] in reaches:continue
   d=min(math.hypot(x-MOUTH[0],y-MOUTH[1]) for x,y in (reach['points'][0],reach['points'][-1]))
-  candidates.append((d,reach['id']))
- if not candidates:raise ValueError('no basin outlet candidates')
- distance,outlet=min(candidates)
- if distance>0.16:raise ValueError('no plausible Tamsui outlet in selected envelope')
- upstream=collections.defaultdict(list)
- for reach in reaches.values():upstream[reach['downstream_id']].append(reach['id'])
- selected=set();queue=[outlet]
- while queue:
-  rid=queue.pop()
-  if rid in selected:raise ValueError('cycle detected')
-  selected.add(rid);queue.extend(upstream[rid])
- if len(selected)<10:raise ValueError('too few upstream reaches for plausible basin')
+  if d>0.16:continue
+  members=trace(reach['id'])
+  candidates.append({'outlet':reach['id'],'distance':round(d,6),'count':len(members),'main_riv':reach['main_riv'],'members':members})
+ if not candidates:raise ValueError('no plausible Tamsui outlet candidates within 0.16 degrees')
+ candidates.sort(key=lambda c:(-c['count'],c['distance'],c['outlet']))
+ # The diagnostic is retained in the workflow logs for reproducible troubleshooting.
+ print('P136 candidate outlet ranking:',json.dumps([{k:v for k,v in c.items() if k!='members'} for c in candidates[:15]],ensure_ascii=False),flush=True)
+ qualified=[c for c in candidates if c['count']>=10]
+ if not qualified:raise ValueError('no candidate has >=10 upstream reaches; see outlet ranking above')
+ winner=qualified[0]
+ if len(qualified)>1 and qualified[1]['count']>=winner['count']*0.8:
+  raise ValueError('ambiguous similarly-sized outlet candidates; manual basin verification required')
+ outlet=winner['outlet'];distance=winner['distance'];selected=winner['members']
  # Reject any cycle, orphan, or ambiguous topology among selected reaches.
  for rid in selected:
   dn=reaches[rid]['downstream_id']
@@ -60,7 +72,7 @@ def main():
  output={'type':'FeatureCollection','features':features};data=encode(output)
  dest=ROOT/'data'/'published';dest.mkdir(parents=True,exist_ok=True)
  (dest/'tamsui-network.geojson').write_bytes(data)
- report={'status':'TOPOLOGY_PASS_BOUNDARY_PRELIMINARY','feature_count':len(features),'outlet_reach_id':str(outlet),'outlet_distance_degrees':round(distance,6),'geometry_envelope':BBOX,'cycles':0,'dangling_downstream_links':0,'mixed_main_riv':False,'basin_boundary_verified':False,'field_flow_direction':'HydroRIVERS NEXT_DOWN','output_sha256':hashlib.sha256(data).hexdigest(),'source_sha256':source_hash}
+ report={'status':'TOPOLOGY_PASS_BOUNDARY_PRELIMINARY','feature_count':len(features),'outlet_reach_id':str(outlet),'outlet_distance_degrees':distance,'candidate_outlets_evaluated':len(candidates),'selection_method':'largest connected upstream component near approximate mouth; preliminary only','geometry_envelope':BBOX,'cycles':0,'dangling_downstream_links':0,'mixed_main_riv':False,'basin_boundary_verified':False,'field_flow_direction':'HydroRIVERS NEXT_DOWN','output_sha256':hashlib.sha256(data).hexdigest(),'source_sha256':source_hash}
  manifest={'dataset_id':'P136-TAMSUI-HYDRORIVERS-PRELIMINARY','version':'0.005','source_url':URL,'source_provider':'HydroSHEDS HydroRIVERS v1','source_license':'HydroSHEDS terms; review redistribution and attribution','retrieved_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_sha256':source_hash,'published_sha256':report['output_sha256'],'feature_count':len(features),'topology_verified':True,'basin_boundary_verified':False,'validation_status':report['status'],'processing':'scripts/build_tamsui_network.py'}
  (dest/'tamsui-network-manifest.json').write_bytes(encode(manifest))
  (dest/'tamsui-network-validation.json').write_bytes(encode(report))
