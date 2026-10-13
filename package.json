@@ -1,0 +1,13 @@
+{
+  "name": "p136-browser-tests",
+  "private": true,
+  "version": "0.016.0",
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:smoke": "node tests/p136-smoke.cjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "leaflet": "1.9.4"
+  }
+}
