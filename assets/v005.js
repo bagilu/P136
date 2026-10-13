@@ -34,5 +34,5 @@ async function network(){
  finally{$('load').disabled=false}
 }
 function load(){const source=$('source').value;if(source==='demo')demo();else if(source==='network')network();else real();}
-$('source').addEventListener('change',load);$('load').addEventListener('click',()=>{$('source').value==='demo'?demo():real()});$('mode').addEventListener('change',draw);$('reset').addEventListener('click',()=>{selected=null;draw();status('已清除選取。')});$('showBase').addEventListener('change',e=>e.target.checked?base.addTo(map):map.removeLayer(base));
-$('region').disabled=true;$('region').title='V0.004 使用單一固定版本的淡水河資料集';real();
+$('source').addEventListener('change',load);$('load').addEventListener('click',load);$('mode').addEventListener('change',draw);$('reset').addEventListener('click',()=>{selected=null;draw();status('已清除選取。')});$('showBase').addEventListener('change',e=>e.target.checked?base.addTo(map):map.removeLayer(base));
+$('region').disabled=true;$('region').title='V0.005 使用固定版本的北臺灣河網候選資料';load();
