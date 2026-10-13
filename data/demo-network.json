@@ -1,0 +1,151 @@
+{
+  "notice": "SYNTHETIC TOPOLOGY TEST ONLY. NOT ACTUAL RIVER GEOMETRY.",
+  "nodes": {
+    "mouth": [
+      25.17,
+      121.41
+    ],
+    "a": [
+      25.13,
+      121.48
+    ],
+    "b": [
+      25.08,
+      121.5
+    ],
+    "c": [
+      25.04,
+      121.52
+    ],
+    "d": [
+      24.99,
+      121.48
+    ],
+    "e": [
+      24.93,
+      121.43
+    ],
+    "f": [
+      24.88,
+      121.38
+    ],
+    "g": [
+      24.93,
+      121.56
+    ],
+    "h": [
+      24.86,
+      121.61
+    ],
+    "i": [
+      25.1,
+      121.58
+    ],
+    "j": [
+      25.12,
+      121.67
+    ],
+    "k": [
+      25.09,
+      121.76
+    ],
+    "l": [
+      25.02,
+      121.68
+    ],
+    "m": [
+      24.81,
+      121.55
+    ],
+    "n": [
+      24.83,
+      121.45
+    ]
+  },
+  "edges": [
+    {
+      "id": "r1",
+      "downstream": "mouth",
+      "upstream": "a",
+      "name": "示範主幹"
+    },
+    {
+      "id": "r2",
+      "downstream": "a",
+      "upstream": "b",
+      "name": "示範主幹"
+    },
+    {
+      "id": "r3",
+      "downstream": "b",
+      "upstream": "c",
+      "name": "示範大漢溪"
+    },
+    {
+      "id": "r4",
+      "downstream": "c",
+      "upstream": "d",
+      "name": "示範大漢溪"
+    },
+    {
+      "id": "r5",
+      "downstream": "d",
+      "upstream": "e",
+      "name": "示範大漢溪"
+    },
+    {
+      "id": "r6",
+      "downstream": "e",
+      "upstream": "f",
+      "name": "示範支流"
+    },
+    {
+      "id": "r7",
+      "downstream": "e",
+      "upstream": "n",
+      "name": "示範支流"
+    },
+    {
+      "id": "r8",
+      "downstream": "b",
+      "upstream": "g",
+      "name": "示範新店溪"
+    },
+    {
+      "id": "r9",
+      "downstream": "g",
+      "upstream": "h",
+      "name": "示範新店溪"
+    },
+    {
+      "id": "r10",
+      "downstream": "h",
+      "upstream": "m",
+      "name": "示範支流"
+    },
+    {
+      "id": "r11",
+      "downstream": "a",
+      "upstream": "i",
+      "name": "示範基隆河"
+    },
+    {
+      "id": "r12",
+      "downstream": "i",
+      "upstream": "j",
+      "name": "示範基隆河"
+    },
+    {
+      "id": "r13",
+      "downstream": "j",
+      "upstream": "k",
+      "name": "示範基隆河"
+    },
+    {
+      "id": "r14",
+      "downstream": "j",
+      "upstream": "l",
+      "name": "示範支流"
+    }
+  ]
+}
