@@ -1,0 +1,56 @@
+{
+  "audit_version": "0.008",
+  "audited_utc": "2026-10-13T13:13:51.668359+00:00",
+  "basin_boundary_verified": false,
+  "candidate_area_distance_field_stats": {
+    "DIST_DN_KM": {
+      "max": 126.8,
+      "min": 0.0,
+      "missing_or_negative_count": 0,
+      "valid_count": 443,
+      "zero_count": 1
+    },
+    "DIST_UP_KM": {
+      "max": 133.9,
+      "min": 1.9,
+      "missing_or_negative_count": 0,
+      "valid_count": 443,
+      "zero_count": 0
+    },
+    "UPLAND_SKM": {
+      "max": 2699.1,
+      "min": 2.1,
+      "missing_or_negative_count": 0,
+      "valid_count": 443,
+      "zero_count": 0
+    }
+  },
+  "catchment_polygons_available": false,
+  "hydrological_interpretation_verified": false,
+  "notes": [
+    "Field names and descriptive statistics only; interpretation requires official source documentation.",
+    "Do not substitute cumulative upstream area for incremental local catchment area.",
+    "No operational flood prediction is authorized by this audit."
+  ],
+  "published_reaches_checked": 443,
+  "rainfall_simulation_authorized": false,
+  "source_field_names": [
+    "HYRIV_ID",
+    "NEXT_DOWN",
+    "MAIN_RIV",
+    "LENGTH_KM",
+    "DIST_DN_KM",
+    "DIST_UP_KM",
+    "CATCH_SKM",
+    "UPLAND_SKM",
+    "ENDORHEIC",
+    "DIS_AV_CMS",
+    "ORD_STRA",
+    "ORD_CLAS",
+    "ORD_FLOW",
+    "HYBAS_L12"
+  ],
+  "source_sha256": "29780b0a75f90024f22e7e2029e5e3045f7325cda0528db65c5cc4c864b98525",
+  "source_url": "https://data.hydrosheds.org/file/HydroRIVERS/HydroRIVERS_v10_as_shp.zip",
+  "status": "SOURCE_FIELDS_AUDITED_NOT_CATCHMENT_VERIFIED"
+}
