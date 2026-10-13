@@ -181,7 +181,7 @@ function paintTravel(){
  }
  for(const [id,r] of reaches)r.layer.setStyle(active.has(id)?{color:'#008b83',weight:5,opacity:1}:id===m.target?{color:'#f59e0b',weight:6,opacity:1}:styleOff);
  const fmt=n=>Math.round(n).toLocaleString('zh-TW');
- travelMessage('目標河段：'+m.target+'（下游端）\\n均勻降雨歷時：'+m.duration+' 小時；固定流速：'+m.speed+' m/s\\n模擬時間：'+elapsed.toFixed(2)+' 小時 / '+m.maxHours.toFixed(2)+' 小時\\n開始到達：'+started+'；完全到達：'+completed+' / '+m.entries.length+' 個局部集水區\\n累積到達體積：約 '+fmt(arrived)+' / '+fmt(m.total)+' m³\\n目標端瞬時示意流量：約 '+discharge.toLocaleString('zh-TW',{maximumFractionDigits:2})+' m³/s\\n假設降雨均勻且逕流同步等速入河，形成持續 '+m.duration+' 小時的矩形入流；沿河固定流速平移。忽略地表延遲、河道蓄水、擴散、坡度及水力回饋。流量曲線僅供概念教學，不是實測、洪峰或洪水預報。');
+ travelMessage('目標河段：'+m.target+'（下游端）\n均勻降雨歷時：'+m.duration+' 小時；固定流速：'+m.speed+' m/s\n模擬時間：'+elapsed.toFixed(2)+' 小時 / '+m.maxHours.toFixed(2)+' 小時\n開始到達：'+started+'；完全到達：'+completed+' / '+m.entries.length+' 個局部集水區\n累積到達體積：約 '+fmt(arrived)+' / '+fmt(m.total)+' m³\n目標端瞬時示意流量：約 '+discharge.toLocaleString('zh-TW',{maximumFractionDigits:2})+' m³/s\n假設降雨均勻且逕流同步等速入河，形成持續 '+m.duration+' 小時的矩形入流；沿河固定流速平移。忽略地表延遲、河道蓄水、擴散、坡度及水力回饋。流量曲線僅供概念教學，不是實測、洪峰或洪水預報。');
 }
 function travelTick(){
  if(!travelModel)return;
