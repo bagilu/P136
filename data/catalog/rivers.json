@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.017",
+  "schema_version": "0.018",
   "catalog_status": "PRELIMINARY",
   "rivers": [
     {
@@ -17,6 +17,23 @@
       "boundary_verified": false,
       "node_coordinates_verified": false,
       "publication_status": "PRELIMINARY"
+    },
+    {
+      "river_id": "P136-R-LANYANG",
+      "name_zh": "蘭陽溪",
+      "name_en": "Lanyang River",
+      "region_zh": "臺灣東北部",
+      "region_en": "Northeastern Taiwan",
+      "network_id": null,
+      "dataset_id": "P136-LANYANG-HYDRORIVERS-PRELIMINARY",
+      "outlet_reach_id": null,
+      "network_geojson": null,
+      "network_index": null,
+      "area_index": null,
+      "boundary_verified": false,
+      "node_coordinates_verified": false,
+      "publication_status": "PLANNED_PENDING_SOURCE_VALIDATION",
+      "candidate_workflow": ".github/workflows/p136-lanyang-candidate.yml"
     }
   ]
 }
