@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.017",
+  "catalog_status": "PRELIMINARY",
+  "rivers": [
+    {
+      "river_id": "P136-R-TAMSUI",
+      "name_zh": "淡水河",
+      "name_en": "Tamsui River",
+      "region_zh": "臺灣北部",
+      "region_en": "Northern Taiwan",
+      "network_id": "P136-N-TAMSUI-001",
+      "dataset_id": "P136-TAMSUI-HYDRORIVERS-PRELIMINARY",
+      "outlet_reach_id": "40962896",
+      "network_geojson": "data/published/tamsui-network.geojson",
+      "network_index": "data/published/tamsui-network-index.json",
+      "area_index": "data/published/tamsui-area-index.json",
+      "boundary_verified": false,
+      "node_coordinates_verified": false,
+      "publication_status": "PRELIMINARY"
+    }
+  ]
+}
