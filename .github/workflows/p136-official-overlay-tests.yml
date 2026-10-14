@@ -1,0 +1,20 @@
+name: P136 Independent GIS overlay unit tests
+on:
+  push:
+    paths:
+      - 'scripts/compare_official_river_lines.py'
+      - 'tests/test_official_overlay.py'
+      - '.github/workflows/p136-official-overlay-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test-overlay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install "shapely>=2,<3" "pyproj>=3,<4"
+      - run: python -m unittest discover -s tests -p test_official_overlay.py -v
