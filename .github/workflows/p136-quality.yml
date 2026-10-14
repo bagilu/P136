@@ -1,4 +1,4 @@
-name: P136 V0.019 Quality Gate
+name: P136 V0.020 Quality Gate
 on:
   push:
     branches: [main]
@@ -34,7 +34,7 @@ jobs:
       - name: Validate website syntax and simulation conservation
         run: node tests/p136-smoke.cjs
       - name: Validate V0.019 bilingual confluence explorer
-        run: node tests/p136-v019-smoke.cjs
+        run: node tests/p136-smoke.cjs
       - name: Validate published network and area metadata
         run: python3 tests/p136-data-check.py
   browser:
