@@ -75,3 +75,17 @@ test('traces selected upstream and downstream while preserving map viewport',asy
  expect(result.upstream.every(x=>x==='#0476ba')).toBe(true);
  await expect(page.locator('#overviewLegend')).toContainText('Downstream');
 });
+
+test('shows provenance-aware upstream and downstream metrics without moving the map',async({page})=>{
+ await page.goto('/');
+ await expect(page.locator('#info')).toContainText('621 河段',{timeout:25000});
+ const before=await page.evaluate(()=>({lat:map.getCenter().lat,lng:map.getCenter().lng,zoom:map.getZoom()}));
+ await page.locator('.p136-outlet-pulse').first().click();
+ await expect(page.locator('#overviewMetrics')).toContainText('Total upstream network length');
+ await expect(page.locator('#overviewMetrics')).toContainText('Downstream route length');
+ await expect(page.locator('#overviewMetrics')).toContainText('Source-estimated upstream catchment area');
+ const after=await page.evaluate(()=>({lat:map.getCenter().lat,lng:map.getCenter().lng,zoom:map.getZoom()}));
+ expect(after).toEqual(before);
+ await page.locator('#reset').click();
+ await expect(page.locator('#overviewMetrics')).toContainText('Select an outlet or reach');
+});
