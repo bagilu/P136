@@ -146,13 +146,19 @@
       "name_en": "Dajia River",
       "region_zh": "臺灣中部",
       "region_en": "Central Taiwan",
-      "registry_status": "REGISTERED",
-      "mouth_location_status": "NOT_VERIFIED",
+      "registry_status": "LOCATED_REFERENCE",
+      "mouth_location_status": "UPSTREAM_BRIDGE_REFERENCE_NOT_OUTLET",
       "geographic_identity_verified": false,
       "boundary_verified": false,
       "publication_status": "REGISTRY_ONLY_NO_NETWORK",
       "network_geojson": null,
-      "outlet_reach_id": null
+      "outlet_reach_id": null,
+      "reference_point": {
+        "lon": 120.60488888888888,
+        "lat": 24.315444444444445,
+        "kind": "Dajia River Bridge water-quality monitoring station; NOT river mouth",
+        "source_url": "https://www.scribd.com/document/874590434/2023%E5%B9%B4%E7%92%B0%E5%A2%83%E6%B0%B4%E8%B3%AA%E7%9B%A3%E6%B8%AC%E5%B9%B4%E5%A0%B1-1"
+      }
     },
     {
       "river_id": "P136-R-WU",
@@ -202,13 +208,19 @@
       "name_en": "Gaoping River",
       "region_zh": "臺灣南部",
       "region_en": "Southern Taiwan",
-      "registry_status": "REGISTERED",
-      "mouth_location_status": "NOT_VERIFIED",
+      "registry_status": "LOCATED_REFERENCE",
+      "mouth_location_status": "UPSTREAM_BRIDGE_REFERENCE_NOT_OUTLET",
       "geographic_identity_verified": false,
       "boundary_verified": false,
       "publication_status": "REGISTRY_ONLY_NO_NETWORK",
       "network_geojson": null,
-      "outlet_reach_id": null
+      "outlet_reach_id": null,
+      "reference_point": {
+        "lon": 120.421321,
+        "lat": 22.498467,
+        "kind": "Shuangyuan Bridge water-quality monitoring station, 2.5 km from river confluence according to source; NOT river mouth",
+        "source_url": "https://waterlab.ksepb.kcg.gov.tw/StaticPage/site"
+      }
     },
     {
       "river_id": "P136-R-HEPING",
