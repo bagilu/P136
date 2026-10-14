@@ -31,3 +31,18 @@ This document records outputs from the actual GitHub Actions artifact, not a pro
 **Source license checkpoint:** HydroRIVERS' own documentation states the product is free for scientific, educational and commercial use, but the full HydroSHEDS v1 license governs derivative works, redistribution, and attribution. It requests citation to Lehner & Grill (2013). Source: https://www.hydrosheds.org/products/hydrorivers and https://data.hydrosheds.org/file/technical-documentation/HydroSHEDS_TechDoc_v1_4.pdf. **Do not infer blanket permission for standalone public redistribution** of candidate GeoJSON solely from a free-use statement; inspect license clauses before committing raw/derived river geometry to a public repository.
 
 **Decision:** **HOLD / NOT PUBLISHED.** Official text-based contextual cross-check completed; geometric identity and public redistribution review remain open.
+
+## 2026-10-15 reproducible outlet endpoint proximity check
+
+The archived candidate `network.geojson` was inspected directly. Candidate outlet reach `41011626` terminates at approximately **(120.552083, 24.327083)** (WGS84 longitude, latitude). Its nearest terminal endpoint is **0.783 km** from the official N4 sampling location **(120.552900, 24.3340833333)** by the haversine formula.
+
+Reproduction (with the GitHub Actions review artifact unzipped locally):
+```sh
+python scripts/review_candidate_outlet.py data/candidates/dajia --seed-lon 120.5529 --seed-lat 24.3340833333
+```
+
+**Interpretation:** proximity is a necessary plausibility check, not sufficient evidence of the correct outlet or the entire 162-reach network's identity. This does not substitute for independent overlay against official river-centerline geometry. The ~0.8 km difference may reflect source scale, sampling-station placement or coastal morphology; no specific cause has been established.
+
+**Licensing:** The official HydroRIVERS product points to the HydroSHEDS v1 license, which requires separate review of redistribution restrictions. The HydroSHEDS FAQ also cautions that global-scale products can have substantial local inaccuracies. https://www.hydrosheds.org/products/hydrorivers and https://www.hydrosheds.org/faq
+
+**Review decision remains HOLD.** No public geometry, version bump or river registry activation.
