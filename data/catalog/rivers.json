@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.021",
+  "schema_version": "0.023",
   "catalog_status": "PRELIMINARY",
   "rivers": [
     {
@@ -41,6 +41,27 @@
       "network_manifest": "data/candidates/lanyang/network-manifest.json",
       "network_validation": "data/candidates/lanyang/network-validation.json",
       "area_validation": "data/candidates/lanyang/area-validation.json"
+    },
+    {
+      "river_id": "P136-R-HUALIEN",
+      "name_zh": "花蓮溪",
+      "name_en": "Hualien River",
+      "region_zh": "臺灣東部",
+      "region_en": "Eastern Taiwan",
+      "network_id": "P136-N-HUALIEN-CANDIDATE-001",
+      "dataset_id": "P136-HUALIEN-HYDRORIVERS-PRELIMINARY",
+      "outlet_reach_id": "41030681",
+      "network_geojson": "data/candidates/hualien/network.geojson",
+      "network_index": "data/candidates/hualien/network-index.json",
+      "area_index": "data/candidates/hualien/area-index.json",
+      "network_manifest": "data/candidates/hualien/network-manifest.json",
+      "network_validation": "data/candidates/hualien/network-validation.json",
+      "area_validation": "data/candidates/hualien/area-validation.json",
+      "boundary_verified": false,
+      "node_coordinates_verified": false,
+      "publication_status": "CANDIDATE_PREVIEW_TOPOLOGY_PASS_GEOGRAPHIC_IDENTITY_UNVERIFIED",
+      "feature_count": 218,
+      "review_document": "docs/P136-V022-Hualien-review.md"
     }
   ]
 }
