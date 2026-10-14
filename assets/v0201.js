@@ -1,6 +1,6 @@
 'use strict';
 const $=id=>document.getElementById(id);
-const map=L.map('map',{preferCanvas:true,scrollWheelZoom:false,zoomAnimation:false}).setView([25.10,121.48],10);
+const map=L.map('map',{preferCanvas:true,zoomAnimation:false}).setView([25.10,121.48],10);
 const base=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:19}).addTo(map);
 const group=L.featureGroup().addTo(map);
 const styleOff={color:'#85c7e7',weight:3,opacity:.85},styleOn={color:'#0476ba',weight:5,opacity:1};
