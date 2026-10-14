@@ -1,6 +1,6 @@
 {
-  "schema_version": "0.023",
-  "catalog_status": "PRELIMINARY",
+  "schema_version": "0.024",
+  "catalog_status": "PRELIMINARY_REGISTRY",
   "rivers": [
     {
       "river_id": "P136-R-TAMSUI",
@@ -19,7 +19,10 @@
       "publication_status": "PRELIMINARY",
       "network_manifest": "data/published/tamsui-network-manifest.json",
       "network_validation": "data/published/tamsui-network-validation.json",
-      "area_validation": "data/published/tamsui-area-validation.json"
+      "area_validation": "data/published/tamsui-area-validation.json",
+      "registry_status": "NETWORK_CANDIDATE",
+      "mouth_location_status": "CANDIDATE_FROM_HYDRORIVERS",
+      "geographic_identity_verified": false
     },
     {
       "river_id": "P136-R-LANYANG",
@@ -40,7 +43,10 @@
       "feature_count": 178,
       "network_manifest": "data/candidates/lanyang/network-manifest.json",
       "network_validation": "data/candidates/lanyang/network-validation.json",
-      "area_validation": "data/candidates/lanyang/area-validation.json"
+      "area_validation": "data/candidates/lanyang/area-validation.json",
+      "registry_status": "NETWORK_CANDIDATE",
+      "mouth_location_status": "CANDIDATE_FROM_HYDRORIVERS",
+      "geographic_identity_verified": false
     },
     {
       "river_id": "P136-R-HUALIEN",
@@ -61,7 +67,178 @@
       "node_coordinates_verified": false,
       "publication_status": "CANDIDATE_PREVIEW_TOPOLOGY_PASS_GEOGRAPHIC_IDENTITY_UNVERIFIED",
       "feature_count": 218,
-      "review_document": "docs/P136-V022-Hualien-review.md"
+      "review_document": "docs/P136-V022-Hualien-review.md",
+      "registry_status": "NETWORK_CANDIDATE",
+      "mouth_location_status": "CANDIDATE_FROM_HYDRORIVERS",
+      "geographic_identity_verified": false
+    },
+    {
+      "river_id": "P136-R-NANAO",
+      "name_zh": "南澳溪",
+      "name_en": "Nanao River",
+      "region_zh": "臺灣東北部",
+      "region_en": "Northeastern Taiwan",
+      "registry_status": "REGISTERED",
+      "mouth_location_status": "NOT_VERIFIED",
+      "geographic_identity_verified": false,
+      "boundary_verified": false,
+      "publication_status": "REGISTRY_ONLY_NO_NETWORK",
+      "network_geojson": null,
+      "outlet_reach_id": null
+    },
+    {
+      "river_id": "P136-R-SIUGULUAN",
+      "name_zh": "秀姑巒溪",
+      "name_en": "Xiuguluan River",
+      "region_zh": "臺灣東部",
+      "region_en": "Eastern Taiwan",
+      "registry_status": "REGISTERED",
+      "mouth_location_status": "NOT_VERIFIED",
+      "geographic_identity_verified": false,
+      "boundary_verified": false,
+      "publication_status": "REGISTRY_ONLY_NO_NETWORK",
+      "network_geojson": null,
+      "outlet_reach_id": null
+    },
+    {
+      "river_id": "P136-R-BEINAN",
+      "name_zh": "卑南溪",
+      "name_en": "Beinan River",
+      "region_zh": "臺灣東部",
+      "region_en": "Eastern Taiwan",
+      "registry_status": "REGISTERED",
+      "mouth_location_status": "NOT_VERIFIED",
+      "geographic_identity_verified": false,
+      "boundary_verified": false,
+      "publication_status": "REGISTRY_ONLY_NO_NETWORK",
+      "network_geojson": null,
+      "outlet_reach_id": null
+    },
+    {
+      "river_id": "P136-R-TOUCHIEN",
+      "name_zh": "頭前溪",
+      "name_en": "Touqian River",
+      "region_zh": "臺灣北部",
+      "region_en": "Northern Taiwan",
+      "registry_status": "REGISTERED",
+      "mouth_location_status": "NOT_VERIFIED",
+      "geographic_identity_verified": false,
+      "boundary_verified": false,
+      "publication_status": "REGISTRY_ONLY_NO_NETWORK",
+      "network_geojson": null,
+      "outlet_reach_id": null
+    },
+    {
+      "river_id": "P136-R-DAJIA",
+      "name_zh": "大甲溪",
+      "name_en": "Dajia River",
+      "region_zh": "臺灣中部",
+      "region_en": "Central Taiwan",
+      "registry_status": "REGISTERED",
+      "mouth_location_status": "NOT_VERIFIED",
+      "geographic_identity_verified": false,
+      "boundary_verified": false,
+      "publication_status": "REGISTRY_ONLY_NO_NETWORK",
+      "network_geojson": null,
+      "outlet_reach_id": null
+    },
+    {
+      "river_id": "P136-R-WU",
+      "name_zh": "烏溪（大肚溪）",
+      "name_en": "Wu River (Dadu River)",
+      "region_zh": "臺灣中部",
+      "region_en": "Central Taiwan",
+      "registry_status": "REGISTERED",
+      "mouth_location_status": "NOT_VERIFIED",
+      "geographic_identity_verified": false,
+      "boundary_verified": false,
+      "publication_status": "REGISTRY_ONLY_NO_NETWORK",
+      "network_geojson": null,
+      "outlet_reach_id": null
+    },
+    {
+      "river_id": "P136-R-ZHUOSHUI",
+      "name_zh": "濁水溪",
+      "name_en": "Zhuoshui River",
+      "region_zh": "臺灣中部",
+      "region_en": "Central Taiwan",
+      "registry_status": "REGISTERED",
+      "mouth_location_status": "NOT_VERIFIED",
+      "geographic_identity_verified": false,
+      "boundary_verified": false,
+      "publication_status": "REGISTRY_ONLY_NO_NETWORK",
+      "network_geojson": null,
+      "outlet_reach_id": null
+    },
+    {
+      "river_id": "P136-R-ZENGWUN",
+      "name_zh": "曾文溪",
+      "name_en": "Zengwen River",
+      "region_zh": "臺灣南部",
+      "region_en": "Southern Taiwan",
+      "registry_status": "REGISTERED",
+      "mouth_location_status": "NOT_VERIFIED",
+      "geographic_identity_verified": false,
+      "boundary_verified": false,
+      "publication_status": "REGISTRY_ONLY_NO_NETWORK",
+      "network_geojson": null,
+      "outlet_reach_id": null
+    },
+    {
+      "river_id": "P136-R-GAOPING",
+      "name_zh": "高屏溪",
+      "name_en": "Gaoping River",
+      "region_zh": "臺灣南部",
+      "region_en": "Southern Taiwan",
+      "registry_status": "REGISTERED",
+      "mouth_location_status": "NOT_VERIFIED",
+      "geographic_identity_verified": false,
+      "boundary_verified": false,
+      "publication_status": "REGISTRY_ONLY_NO_NETWORK",
+      "network_geojson": null,
+      "outlet_reach_id": null
+    },
+    {
+      "river_id": "P136-R-HEPING",
+      "name_zh": "和平溪",
+      "name_en": "Heping River",
+      "region_zh": "臺灣東北部",
+      "region_en": "Northeastern Taiwan",
+      "registry_status": "REGISTERED",
+      "mouth_location_status": "NOT_VERIFIED",
+      "geographic_identity_verified": false,
+      "boundary_verified": false,
+      "publication_status": "REGISTRY_ONLY_NO_NETWORK",
+      "network_geojson": null,
+      "outlet_reach_id": null
+    },
+    {
+      "river_id": "P136-R-LIWU",
+      "name_zh": "立霧溪",
+      "name_en": "Liwu River",
+      "region_zh": "臺灣東部",
+      "region_en": "Eastern Taiwan",
+      "registry_status": "REGISTERED",
+      "mouth_location_status": "NOT_VERIFIED",
+      "geographic_identity_verified": false,
+      "boundary_verified": false,
+      "publication_status": "REGISTRY_ONLY_NO_NETWORK",
+      "network_geojson": null,
+      "outlet_reach_id": null
+    },
+    {
+      "river_id": "P136-R-ERREN",
+      "name_zh": "二仁溪",
+      "name_en": "Erren River",
+      "region_zh": "臺灣南部",
+      "region_en": "Southern Taiwan",
+      "registry_status": "REGISTERED",
+      "mouth_location_status": "NOT_VERIFIED",
+      "geographic_identity_verified": false,
+      "boundary_verified": false,
+      "publication_status": "REGISTRY_ONLY_NO_NETWORK",
+      "network_geojson": null,
+      "outlet_reach_id": null
     }
   ]
 }
