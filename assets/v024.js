@@ -408,6 +408,7 @@ initOverview();
 /* V0.023 Taiwan overview: three candidate networks coexist; only user gestures change the viewport after initial fit. */
 const overviewDatasets=new Map(),overviewLayers=new Map();
 const overviewOutletMarkers=L.layerGroup().addTo(map);
+const registryReferenceMarkers=L.layerGroup().addTo(map);
 // Outlet pulses must use SVG even though the river network uses Canvas for performance.
 const overviewOutletSvgRenderer=L.svg({padding:.5});
 const styleSelected={color:'#e0a01b',weight:7,opacity:1};
@@ -517,17 +518,28 @@ function overviewMarkers(){
  }
  // Branch candidates appear only after choosing a system, regardless of zoom.
 }
+function renderRegistryReferenceMarkers(entries){
+ registryReferenceMarkers.clearLayers();
+ for(const entry of entries){
+  const p=entry.reference_point;
+  if(!p||entry.network_geojson||!Number.isFinite(p.lon)||!Number.isFinite(p.lat))continue;
+  const marker=L.circleMarker([p.lat,p.lon],{renderer:overviewOutletSvgRenderer,radius:5,color:'#53687a',weight:1.5,fillColor:'#fff',fillOpacity:.9});
+  marker.bindTooltip(entry.name_zh+' / '+entry.name_en+' · 參考位置 / Reference only',{direction:'top'});
+  marker.bindPopup('<strong>'+entry.name_zh+' / '+entry.name_en+'</strong><p>參考位置，非實測河口；河網尚未建置。 / Reference location, not a surveyed outlet. Network pending.</p>');
+  marker.addTo(registryReferenceMarkers);
+ }
+}
 function renderRiverRegistry(entries){
  const list=$('riverRegistryList'),summary=$('riverRegistrySummary');if(!list||!summary)return;
  list.replaceChildren();
  const active=entries.filter(r=>r.network_geojson&&r.outlet_reach_id).length;
- summary.textContent=entries.length+' 條已登錄 / registered · '+active+' 條候選河網 / candidate networks · '+(entries.length-active)+' 條待建置 / awaiting network';
+ summary.textContent=entries.length+' 條已登錄 / registered · '+active+' 條候選河網 / candidate networks · '+(entries.length-active)+' 條待建置 / awaiting network · '+referenced+' 處參考位置 / reference points';
  for(const r of entries){
-  const ready=!!(r.network_geojson&&r.outlet_reach_id);
+  const ready=!!(r.network_geojson&&r.outlet_reach_id),referenced=!!r.reference_point;
   const btn=document.createElement('button');
   btn.type='button';btn.style.cssText='text-align:left;margin:0;padding:7px 9px;font-size:12px;line-height:1.4;white-space:normal;background:'+(ready?'#e6f4fa':'#f4f5f6')+';color:#18344a;border:1px solid #c7d4dc;border-radius:6px;cursor:'+(ready?'pointer':'default');
   const title=document.createElement('strong');title.textContent=r.name_zh+' / '+r.name_en;
-  const status=document.createElement('span');status.style.cssText='display:block;font-size:11px;color:#37596a';status.textContent=ready?'候選河網可探索 · 河口及流域未驗證 / Explore candidate · geography unverified':'已登錄 · 河口未定位 · 河網待建 / Registered · outlet unlocated · network pending';
+  const status=document.createElement('span');status.style.cssText='display:block;font-size:11px;color:#37596a';status.textContent=ready?'候選河網可探索 · 河口及流域未驗證 / Explore candidate · geography unverified':referenced?'已定位參考點（非實測河口）· 河網待建 / Reference only · network pending':'已登錄 · 河口未定位 · 河網待建 / Registered · outlet unlocated · network pending';
   btn.append(title,status);
   if(ready){btn.addEventListener('click',()=>overviewHighlight(r.river_id,r.outlet_reach_id))}
   else{btn.disabled=true;btn.style.opacity='.8'}
@@ -540,6 +552,7 @@ async function initOverview(){
   if(!Array.isArray(catalog.rivers))throw Error('Invalid catalog');
   riverCatalog=catalog;
   renderRiverRegistry(catalog.rivers);
+  renderRegistryReferenceMarkers(catalog.rivers);
   const available=catalog.rivers.filter(x=>x.network_geojson&&x.outlet_reach_id);
   // Every candidate must pass the same provenance gate before any geometry is displayed.
   const datasets=await Promise.all(available.map(overviewFetch));
