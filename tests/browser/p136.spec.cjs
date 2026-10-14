@@ -89,3 +89,22 @@ test('shows provenance-aware upstream and downstream metrics without moving the 
  await page.locator('#reset').click();
  await expect(page.locator('#overviewMetrics')).toContainText('Select an outlet or reach');
 });
+
+test('catalog-driven provenance paths load both existing networks',async({page})=>{
+ await page.goto('/');
+ await expect(page.locator('#info')).toContainText('621 河段',{timeout:25000});
+ const result=await page.evaluate(()=>({
+  count:overviewDatasets.size,
+  entries:[...overviewDatasets.values()].map(d=>({
+   id:d.entry.river_id,manifest:d.entry.network_manifest,validation:d.entry.network_validation,
+   areaValidation:d.entry.area_validation,count:d.geo.features.length
+  }))
+ }));
+ expect(result.count).toBe(2);
+ expect(result.entries.map(x=>x.count).sort((a,b)=>a-b)).toEqual([178,443]);
+ for(const e of result.entries){
+  expect(e.manifest).toMatch(/^data\//);
+  expect(e.validation).toMatch(/^data\//);
+  expect(e.areaValidation).toMatch(/^data\//);
+ }
+});
