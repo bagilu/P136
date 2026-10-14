@@ -21,7 +21,7 @@ python scripts/build_river_candidate.py --slug RIVER_SLUG --mouth-lon LONGITUDE 
 5. `basin_boundary_verified=false`、`rainfall_simulation_authorized=false`。 / Basin boundary and rainfall simulation are not independently authorized.
 
 ## 上線前人工驗證 / Human review before activation
-確認河流名稱與河口、幾何方向、上下游連通、主要支流及候選河段範圍；檢查來源授權及署名。只有在候選資料完成品質檢查與人工審閱後，才更新 `data/catalog/rivers.json`。目前 `assets/v0204.js` 的資料讀取路徑僅支援淡水河及蘭陽溪；新增河流須先將其改為依 catalog 提供的 manifest/validation 路徑讀取，不能只增加 catalog 條目。 / Validate river identity, outlet, geometry, topology, coverage and licensing before catalog activation. The current frontend still hardcodes two dataset validation paths and must be generalized before any third river can be enabled.
+確認河流名稱與河口、幾何方向、上下游連通、主要支流及候選河段範圍；檢查來源授權及署名。只有在候選資料完成品質檢查與人工審閱後，才更新 `data/catalog/rivers.json`。V0.021 已改為透過 `data/catalog/rivers.json` 的 `network_geojson`、`network_manifest`、`network_validation`、`network_index`、`area_index`、`area_validation` 六個路徑載入資料。新增河流仍須先產製候選資料、人工查證河流身分與河口，並通過拓樸、來源雜湊與品質檢查。 / V0.021 reads six dataset paths from the catalog. New rivers still require generated candidate data, manual river/outlet identity review, topology validation, provenance hashes and quality gates before activation.
 
 ## 本階段界線 / Current boundary
 此階段建立可重複產製能力；尚未產生第三條河流的可信候選成果，也不宣稱流域邊界驗證完成。 / This stage establishes a reusable builder; no third river is published or represented as validated.
