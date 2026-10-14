@@ -5,7 +5,7 @@ on:
     paths:
       - '.github/workflows/p136-hualien-review.yml'
 permissions:
-  contents: read
+  contents: write
 jobs:
   extract:
     runs-on: ubuntu-latest
@@ -37,3 +37,17 @@ jobs:
           name: p136-hualien-candidate-review
           path: data/candidates/hualien/
           retention-days: 30
+      - name: Commit validated candidate for manual geographic review (not public catalog)
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/candidates/hualien/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'data(P136): store topology-validated Hualien candidate for geographic review'
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
