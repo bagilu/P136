@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Inventory Taiwan WRA official SHP download without treating it as verified linework."""
-import argparse,hashlib,io,json,pathlib,urllib.request,zipfile
+import argparse,hashlib,io,json,pathlib,urllib.request,zipfile,time,traceback,datetime
 import shapefile
 SOURCES={
  'RIVERLIN':'https://gic.wra.gov.tw/gis/gic/API/Google/DownLoad.aspx?fname=RIVERLIN&filetype=SHP',
@@ -10,8 +10,17 @@ SOURCES={
 def inventory(layer,max_bytes=120_000_000):
  url=SOURCES[layer]
  req=urllib.request.Request(url,headers={'User-Agent':'P136-research-GIS-inventory/1.0'})
- with urllib.request.urlopen(req,timeout=90) as resp:
-  raw=resp.read(max_bytes+1)
+ last_error=None
+ for attempt in range(1,4):
+  try:
+   with urllib.request.urlopen(req,timeout=30) as resp:
+    raw=resp.read(max_bytes+1)
+   break
+  except Exception as exc:
+   last_error=exc
+   if attempt<3:time.sleep(attempt*2)
+ else:
+  raise RuntimeError(f'Official WRA source unavailable after 3 attempts: {type(last_error).__name__}: {last_error}') from last_error
  if len(raw)>max_bytes:raise ValueError('Source exceeded safe download limit')
  if not zipfile.is_zipfile(io.BytesIO(raw)):raise ValueError('Expected official ZIP SHP; response not a ZIP')
  with zipfile.ZipFile(io.BytesIO(raw)) as z:
@@ -37,7 +46,14 @@ def inventory(layer,max_bytes=120_000_000):
 if __name__=='__main__':
  a=argparse.ArgumentParser();a.add_argument('--layer',choices=SOURCES,default='RIVERLIN')
  a.add_argument('--output',required=True);v=a.parse_args()
- result=inventory(v.layer)
+ try:
+  result=inventory(v.layer)
+ except Exception as exc:
+  result={'status':'SOURCE_UNAVAILABLE_NOT_VERIFIED','layer':v.layer,'source_url':SOURCES[v.layer],
+          'checked_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+          'error_type':type(exc).__name__,'error':str(exc),
+          'official_geometry_downloaded':False,'identity_verified':False,'publication_approved':False}
  pathlib.Path(v.output).parent.mkdir(parents=True,exist_ok=True)
  pathlib.Path(v.output).write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
  print(json.dumps(result,ensure_ascii=False,indent=2))
+ if result['status']=='SOURCE_UNAVAILABLE_NOT_VERIFIED':raise SystemExit(2)
