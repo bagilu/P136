@@ -1,0 +1,101 @@
+name: P136 River candidate extraction (manual review only)
+on:
+  workflow_dispatch:
+    inputs:
+      river:
+        description: 'Registered river (candidate only)'
+        required: true
+        type: choice
+        options:
+          - dajia
+          - gaoping
+      mouth_lon:
+        description: 'Approximate longitude from documented source; NOT a surveyed outlet'
+        required: true
+        type: string
+      mouth_lat:
+        description: 'Approximate latitude from documented source; NOT a surveyed outlet'
+        required: true
+        type: string
+      bbox_west:
+        description: 'Bounding box west longitude'
+        required: true
+        type: string
+      bbox_south:
+        description: 'Bounding box south latitude'
+        required: true
+        type: string
+      bbox_east:
+        description: 'Bounding box east longitude'
+        required: true
+        type: string
+      bbox_north:
+        description: 'Bounding box north latitude'
+        required: true
+        type: string
+      reference_url:
+        description: 'Public source URL documenting approximate mouth location'
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  candidate-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pyshp==2.3.1
+      - name: Extract unverified candidate using supplied research reference
+        env:
+          RIVER: ${{ inputs.river }}
+          MOUTH_LON: ${{ inputs.mouth_lon }}
+          MOUTH_LAT: ${{ inputs.mouth_lat }}
+          BBOX_WEST: ${{ inputs.bbox_west }}
+          BBOX_SOUTH: ${{ inputs.bbox_south }}
+          BBOX_EAST: ${{ inputs.bbox_east }}
+          BBOX_NORTH: ${{ inputs.bbox_north }}
+          REFERENCE_URL: ${{ inputs.reference_url }}
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, subprocess, urllib.parse
+          river=os.environ['RIVER']
+          if river not in ('dajia','gaoping'):
+              raise SystemExit('Unsupported river')
+          url=os.environ['REFERENCE_URL'].strip()
+          parsed=urllib.parse.urlsplit(url)
+          if parsed.scheme!='https' or not parsed.netloc:
+              raise SystemExit('Reference must be a public HTTPS URL')
+          fields=('MOUTH_LON','MOUTH_LAT','BBOX_WEST','BBOX_SOUTH','BBOX_EAST','BBOX_NORTH')
+          values=[float(os.environ[x]) for x in fields]
+          if not (119<=values[0]<=123 and 21<=values[1]<=26):
+              raise SystemExit('Mouth seed outside Taiwan region')
+          if not (119<=values[2]<values[4]<=123 and 21<=values[3]<values[5]<=26):
+              raise SystemExit('Invalid Taiwan-region bounding box')
+          subprocess.run(['python','scripts/build_river_candidate.py','--slug',river,
+            '--mouth-lon',str(values[0]),'--mouth-lat',str(values[1]),
+            '--bbox',*[str(x) for x in values[2:]]],check=True)
+          folder=pathlib.Path('data/candidates')/river
+          (folder/'research-input.json').write_text(json.dumps({
+            'river':river,'mouth_seed':[values[0],values[1]],
+            'bbox':[values[2],values[3],values[4],values[5]],
+            'reference_url':url,
+            'mouth_seed_verified':False,
+            'geographic_identity_verified':False,
+            'publication_authorized':False,
+            'review_required':'Independent outlet identity, river geometry and licensing checks'
+          },ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: Independently validate topology and provenance
+        env:
+          RIVER: ${{ inputs.river }}
+        run: python scripts/validate_river_candidate.py "data/candidates/$RIVER"
+      - name: Upload review-only candidate (never update public catalog)
+        uses: actions/upload-artifact@v4
+        with:
+          name: p136-river-candidate-review
+          path: data/candidates/${{ inputs.river }}/
+          retention-days: 30
