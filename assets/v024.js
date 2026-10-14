@@ -489,7 +489,7 @@ async function overviewFetch(entry){
   const value=entry[field];
   if(typeof value!=='string'||!value.startsWith('data/')||value.includes('..')||!/^data\/[a-zA-Z0-9_./-]+\.(?:json|geojson)$/.test(value))throw Error(entry.name_en+' invalid catalog path: '+field);
  }
- const [geo,manifest,validation,idx,area,areaValidation]=await Promise.all(fields.map(field=>json(entry[field]+'?v=0.024.2')));
+ const [geo,manifest,validation,idx,area,areaValidation]=await Promise.all(fields.map(field=>json(entry[field]+'?v=0.025')));
  if(!Array.isArray(geo.features)||geo.features.length!==manifest.feature_count||validation.feature_count!==geo.features.length||manifest.published_sha256!==validation.output_sha256||manifest.validation_status!=='TOPOLOGY_PASS_BOUNDARY_PRELIMINARY'||manifest.dataset_id!==entry.dataset_id||manifest.basin_boundary_verified!==false||idx.source_feature_count!==geo.features.length||area.feature_count!==geo.features.length||area.network_sha256!==manifest.published_sha256||area.source_sha256!==manifest.source_sha256||areaValidation.status!=='AREA_SOURCE_EXTRACTED_BOUNDARY_UNVERIFIED'||areaValidation.basin_boundary_verified!==false)throw Error(entry.name_en+' provenance mismatch');
  for(const f of geo.features){const id=String(f.properties.id);if(!idx.reaches[id]||!area.reaches[id])throw Error('Missing indexed reach '+id)}
  if(!idx.reaches[entry.outlet_reach_id])throw Error('Missing candidate outlet reach '+entry.outlet_reach_id);
@@ -549,7 +549,7 @@ function renderRiverRegistry(entries){
 }
 async function initOverview(){
  try{
-  const catalog=await json('data/catalog/rivers.json?v=0.024.2');
+  const catalog=await json('data/catalog/rivers.json?v=0.025');
   if(!Array.isArray(catalog.rivers))throw Error('Invalid catalog');
   riverCatalog=catalog;
   renderRiverRegistry(catalog.rivers);
