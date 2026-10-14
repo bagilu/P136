@@ -1,12 +1,15 @@
 name: P136 Hualien River candidate review
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/p136-hualien-review.yml'
 permissions:
   contents: read
 jobs:
   extract:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
