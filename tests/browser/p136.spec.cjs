@@ -45,3 +45,21 @@ test('switches to demonstration mode without falsely enabling hydrologic model',
  await page.locator('#travelToggle').click();
  await expect(page.locator('#travelInfo')).toContainText('請先載入候選河網');
 });
+
+test('explores bilingual candidate junctions on both river networks',async({page})=>{
+ await page.goto('/');
+ await expect(page.locator('#info')).toContainText('443 個河段',{timeout:20000});
+ await expect(page.locator('#nodeList button').first()).toBeVisible();
+ await expect(page.locator('#nodeStatus')).toContainText('交會點候選');
+ await page.locator('#nodeList button').nth(1).click();
+ await expect(page.locator('#info')).toContainText('選取');
+ await page.locator('#nodeFullNetwork').click();
+ await expect(page.locator('#info')).toContainText('完整河網');
+ await page.locator('#river').selectOption('P136-R-LANYANG');
+ await expect(page.locator('#info')).toContainText('178 個河段',{timeout:20000});
+ await expect(page.locator('#nodeList button').first()).toContainText('蘭陽溪');
+ await page.locator('#nodeList button').first().click();
+ await expect(page.locator('#info')).toContainText('選取');
+ await page.locator('#river').selectOption('P136-R-TAMSUI');
+ await expect(page.locator('#info')).toContainText('443 個河段',{timeout:20000});
+});
