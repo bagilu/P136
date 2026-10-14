@@ -30,6 +30,8 @@ jobs:
           assert v['cycles']==0 and v['dangling_downstream_links']==0
           print('Review-only candidate:',m['feature_count'],'reaches')
           PY
+      - name: Independently validate provenance, topology and endpoint continuity
+        run: python scripts/validate_river_candidate.py data/candidates/hualien
       - uses: actions/upload-artifact@v4
         with:
           name: p136-hualien-candidate-review
