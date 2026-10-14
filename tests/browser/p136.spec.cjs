@@ -33,3 +33,22 @@ test('selects two outlets without changing viewport and restores all rivers',asy
  await page.locator('#reset').click();
  await expect(page.locator('#overviewSelection')).toContainText('尚未選取');
 });
+
+test('keeps viewport stable while navigating backward through reach selections',async({page})=>{
+ await page.goto('/');
+ await expect(page.locator('#info')).toContainText('621 河段',{timeout:25000});
+ await page.locator('.p136-outlet-pulse').first().click();
+ await expect(page.locator('#overviewBack')).toBeDisabled();
+ const before=await page.evaluate(()=>({lat:map.getCenter().lat,lng:map.getCenter().lng,zoom:map.getZoom()}));
+ await page.evaluate(()=>{
+  const d=overviewDatasets.get('P136-R-TAMSUI');
+  const id=d.idx.reaches[d.entry.outlet_reach_id].upstream_ids.find(x=>d.idx.reaches[x]?.upstream_ids?.length>0);
+  overviewHighlight(d.entry.river_id,id);
+ });
+ await expect(page.locator('#overviewBack')).toBeEnabled();
+ await page.locator('#overviewBack').click();
+ await expect(page.locator('#overviewBack')).toBeDisabled();
+ await expect(page.locator('#overviewSelection')).toContainText('淡水河');
+ const after=await page.evaluate(()=>({lat:map.getCenter().lat,lng:map.getCenter().lng,zoom:map.getZoom()}));
+ expect(after).toEqual(before);
+});
