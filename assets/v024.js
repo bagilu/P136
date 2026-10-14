@@ -559,7 +559,7 @@ async function initOverview(){
   overviewClearHighlights();
   const total=[...overviewDatasets.values()].reduce((n,d)=>n+d.geo.features.length,0);
   status('臺灣河網總覽 / Taiwan River Overview — '+total+' 河段 / reaches，'+overviewDatasets.size+' 條候選河系 / candidate systems. 點選閃爍河口 / Select a pulsing outlet.');
-  $('riverCatalogStatus').textContent='目前可探索 +available.map(r=>r.name_zh+' / '+r.name_en).join('、')+'；河口與流域邊界未獨立驗證 / Candidate data, unverified outlet positions and basin boundaries.';
+  $('riverCatalogStatus').textContent='目前可探索 '+available.map(r=>r.name_zh+' / '+r.name_en).join('、')+'；河口與流域邊界未獨立驗證 / Candidate data, unverified outlet positions and basin boundaries.';
   rainfallStatus('請先點選地圖上的河口 / Select a river mouth first.');
  }catch(e){status('總覽載入失敗 / Overview failed: '+e.message);console.error(e)}
 }
