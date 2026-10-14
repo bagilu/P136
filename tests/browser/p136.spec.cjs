@@ -19,20 +19,20 @@ test('loads three candidate river networks in Taiwan overview',async({page})=>{
  await expect(page.locator('#riverRegistryList button:disabled')).toHaveCount(12);
  expect(errors).toEqual([]);
 });
-test('selects two outlets without changing viewport and restores all rivers',async({page})=>{
+test('selects three outlets without changing viewport and restores all rivers',async({page})=>{
  await page.goto('/');
  await expect(page.locator('#info')).toContainText('839 河段',{timeout:25000});
  const before=await page.evaluate(()=>({center:map.getCenter(),zoom:map.getZoom()}));
  await page.locator('.p136-outlet-pulse').first().click();
  await expect(page.locator('#overviewSelection')).toContainText('淡水河');
- await expect(page.locator('#info')).toContainText('443 個上游河段');
+ await expect(page.locator('#info')).toContainText('上游 442 河段');
  const after=await page.evaluate(()=>({center:map.getCenter(),zoom:map.getZoom()}));
  expect(after.zoom).toBe(before.zoom);
  expect(after.center.lat).toBeCloseTo(before.center.lat,7);
  expect(after.center.lng).toBeCloseTo(before.center.lng,7);
  await page.locator('.p136-outlet-pulse').nth(1).click();
  await expect(page.locator('#overviewSelection')).toContainText('蘭陽溪');
- await expect(page.locator('#info')).toContainText('178 個上游河段');
+ await expect(page.locator('#info')).toContainText('上游 177 河段');
  await page.locator('.p136-outlet-pulse').nth(2).click();
  await expect(page.locator('#overviewSelection')).toContainText('花蓮溪');
  await page.locator('#reset').click();
