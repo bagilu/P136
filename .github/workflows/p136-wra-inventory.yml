@@ -1,0 +1,28 @@
+name: P136 WRA GIS source inventory
+on:
+  push:
+    paths:
+      - '.github/workflows/p136-wra-inventory.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pyshp==2.3.1
+      - name: Inspect official river tributary SHP
+        run: python scripts/inventory_wra_shapefile.py --layer RIVERLIN --output review/wra-riverlin-inventory.json
+      - name: Upload provenance and geometry inventory only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p136-wra-riverlin-inventory
+          path: review/wra-riverlin-inventory.json
+          if-no-files-found: warn
+          retention-days: 30
