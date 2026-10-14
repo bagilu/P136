@@ -158,6 +158,14 @@
         "lat": 24.315444444444445,
         "kind": "Dajia River Bridge water-quality monitoring station; NOT river mouth",
         "source_url": "https://www.scribd.com/document/874590434/2023%E5%B9%B4%E7%92%B0%E5%A2%83%E6%B0%B4%E8%B3%AA%E7%9B%A3%E6%B8%AC%E5%B9%B4%E5%A0%B1-1"
+      },
+      "candidate_mouth_seed": {
+        "lon": 120.5529,
+        "lat": 24.3340833333,
+        "source_label": "Institute of Transportation, Taichung Port water-quality station N4 (Dajia River estuary)",
+        "source_url": "https://www.iot.gov.tw/uploads/asset/data/6619bd49367376304acd5200/B0993870.pdf",
+        "status": "OFFICIAL_MONITORING_STATION_NOT_VERIFIED_HYDROGRAPHIC_OUTLET",
+        "review_document": "docs/P136-Dajia-mouth-seed-review.md"
       }
     },
     {
