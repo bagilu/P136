@@ -211,7 +211,7 @@ function showValidation(model,t){
  if(!model){el.textContent='尚未載入有效的水量傳遞模型。';return}
  const v=validateModel(model),b=massBalance(model,t);
  const fmt=n=>n.toLocaleString('zh-TW',{maximumFractionDigits:2});
- el.textContent=(v.pass?'PASS — 水量守恆檢查通過':'FAIL — '+v.reason)+'\\n總產生逕流：'+fmt(model.total)+' m³\\n已到達：'+fmt(b.arrived)+' m³\\n尚未到達：'+fmt(b.remaining)+' m³\\n守恆殘差：'+fmt(b.residual)+' m³\\n流量積分殘差：'+fmt(b.integrationResidual)+' m³\\n檢查點：'+(v.checked||0)+'；最大數值殘差：'+fmt(v.worst||0)+' m³\\n僅驗證簡化模型的內部數值一致性，不代表水文或流域資料已通過實測驗證。';
+ el.textContent=(v.pass?'PASS — 水量守恆檢查通過':'FAIL — '+v.reason)+'\n總產生逕流：'+fmt(model.total)+' m³\n已到達：'+fmt(b.arrived)+' m³\n尚未到達：'+fmt(b.remaining)+' m³\n守恆殘差：'+fmt(b.residual)+' m³\n流量積分殘差：'+fmt(b.integrationResidual)+' m³\n檢查點：'+(v.checked||0)+'；最大數值殘差：'+fmt(v.worst||0)+' m³\n僅驗證簡化模型的內部數值一致性，不代表水文或流域資料已通過實測驗證。';
 }
 
 function hydrographAt(model,t){
@@ -449,10 +449,10 @@ function overviewShowMetrics(data,target,upstream,downstream){
  const m=overviewMetrics(data,target,upstream,downstream);
  const km=n=>n===null?'資料不足 / unavailable':n.toLocaleString('zh-TW',{maximumFractionDigits:1})+' km';
  const area=n=>n===null?'資料不足 / unavailable':n.toLocaleString('zh-TW',{maximumFractionDigits:1})+' km²';
- el.textContent='上游河網總長 / Total upstream network length：'+km(m.upstreamKm)+' ('+m.upstreamCount+' 河段 / reaches)\\n'
- +'選取河段長度 / Selected reach length：'+km(m.selectedKm)+'\\n'
- +'下游路徑長度 / Downstream route length：'+km(m.downstreamKm)+' ('+m.downstreamCount+' 河段 / reaches)\\n'
- +'上游累積集水面積（來源初估） / Source-estimated upstream catchment area：'+area(m.upstreamAreaKm2)+'\\n'
+ el.textContent='上游河網總長 / Total upstream network length：'+km(m.upstreamKm)+' ('+m.upstreamCount+' 河段 / reaches)\n'
+ +'選取河段長度 / Selected reach length：'+km(m.selectedKm)+'\n'
+ +'下游路徑長度 / Downstream route length：'+km(m.downstreamKm)+' ('+m.downstreamCount+' 河段 / reaches)\n'
+ +'上游累積集水面積（來源初估） / Source-estimated upstream catchment area：'+area(m.upstreamAreaKm2)+'\n'
  +'注意：上游總長為各分支加總，並非河口距離；面積與河口位置尚未獨立驗證。 / Upstream length sums branches, not distance to outlet; catchment area and outlet position remain unverified.';
 }
 function overviewHighlight(riverId,target,back=false){
