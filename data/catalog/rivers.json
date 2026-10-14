@@ -78,13 +78,19 @@
       "name_en": "Nanao River",
       "region_zh": "臺灣東北部",
       "region_en": "Northeastern Taiwan",
-      "registry_status": "REGISTERED",
-      "mouth_location_status": "NOT_VERIFIED",
+      "registry_status": "LOCATED_REFERENCE",
+      "mouth_location_status": "REFERENCE_LANDSCAPE_NOT_SURVEYED_OUTLET",
       "geographic_identity_verified": false,
       "boundary_verified": false,
       "publication_status": "REGISTRY_ONLY_NO_NETWORK",
       "network_geojson": null,
-      "outlet_reach_id": null
+      "outlet_reach_id": null,
+      "reference_point": {
+        "lon": 121.788,
+        "lat": 24.46,
+        "kind": "Nanao alluvial fan landscape reference; not surveyed mouth",
+        "source_url": "https://landscape.forest.gov.tw/Front/land_search/Landscape.aspx?Sn=309&id=kVsq7hIIvoI%3D"
+      }
     },
     {
       "river_id": "P136-R-SIUGULUAN",
@@ -92,13 +98,19 @@
       "name_en": "Xiuguluan River",
       "region_zh": "臺灣東部",
       "region_en": "Eastern Taiwan",
-      "registry_status": "REGISTERED",
-      "mouth_location_status": "NOT_VERIFIED",
+      "registry_status": "LOCATED_REFERENCE",
+      "mouth_location_status": "REFERENCE_MONITORING_STATION_NOT_SURVEYED_OUTLET",
       "geographic_identity_verified": false,
       "boundary_verified": false,
       "publication_status": "REGISTRY_ONLY_NO_NETWORK",
       "network_geojson": null,
-      "outlet_reach_id": null
+      "outlet_reach_id": null,
+      "reference_point": {
+        "lon": 121.52601305555555,
+        "lat": 23.459638055555555,
+        "kind": "Marine monitoring station named Xiuguluan River mouth; not surveyed hydrographic outlet",
+        "source_url": "https://www.oca.gov.tw/userfiles/A47020000A/files/%E6%B5%B7%E5%9F%9F%E7%9B%A3%E6%B8%AC%E6%B8%AC%E7%AB%99%E5%BA%A7%E6%A8%99%E8%A1%A8%28%E4%B8%8A%E5%82%B3%29.pdf"
+      }
     },
     {
       "river_id": "P136-R-BEINAN",
