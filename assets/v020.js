@@ -476,7 +476,6 @@ function overviewOutletPosition(data){
 }
 function overviewMarkers(){
  overviewOutletMarkers.clearLayers();
- const zoom=map.getZoom();
  for(const data of overviewDatasets.values()){
   const p=overviewOutletPosition(data);if(!p)continue;
   // At the national scale only the available major candidate river systems are labeled.
@@ -486,6 +485,7 @@ function overviewMarkers(){
   marker.bindTooltip(label,{permanent:true,direction:'right',offset:[12,0],className:'p136-outlet-label'});
   marker.on('click',()=>overviewHighlight(data.entry.river_id,data.entry.outlet_reach_id));
   marker.addTo(overviewOutletMarkers);
+  if(overviewActive===data.entry.river_id)marker.setStyle({color:'#054b80',fillOpacity:.68});
  }
  // Branch candidates appear only after choosing a system, regardless of zoom.
 }
@@ -509,6 +509,7 @@ async function initOverview(){
   map.fitBounds([[21.85,120.0],[25.35,122.1]],{padding:[20,20]});
   overviewMarkers();
   map.on('zoomend',overviewMarkers);
+  $('reset').addEventListener('click',overviewClearHighlights);
   overviewClearHighlights();
   const total=[...overviewDatasets.values()].reduce((n,d)=>n+d.geo.features.length,0);
   status('臺灣河網總覽 / Taiwan River Overview — '+total+' 河段 / reaches，'+overviewDatasets.size+' 條候選河系 / candidate systems. 點選閃爍河口 / Select a pulsing outlet.');
