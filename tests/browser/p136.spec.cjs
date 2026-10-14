@@ -113,3 +113,21 @@ test('catalog-driven provenance paths load three networks',async({page})=>{
   expect(e.areaValidation).toMatch(/^data\//);
  }
 });
+
+test('renders four reference stations separately from three candidate outlets',async({page})=>{
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('/');
+ await expect(page.locator('#info')).toContainText('839 河段',{timeout:25000});
+ await expect(page.locator('#riverRegistrySummary')).toContainText('4 處參考位置');
+ await expect(page.locator('.p136-outlet-pulse')).toHaveCount(3);
+ const reference=await page.evaluate(()=>({
+  count:registryReferenceMarkers.getLayers().length,
+  labels:registryReferenceMarkers.getLayers().map(layer=>layer.getTooltip()?.getContent()||''),
+  outlets:overviewOutletMarkers.getLayers().length
+ }));
+ expect(reference.count).toBe(4);
+ expect(reference.outlets).toBe(3);
+ expect(reference.labels.some(x=>x.includes('大甲溪'))).toBe(true);
+ expect(reference.labels.some(x=>x.includes('高屏溪'))).toBe(true);
+ expect(errors).toEqual([]);
+});
