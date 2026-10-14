@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.018.1",
+  "schema_version": "0.021",
   "catalog_status": "PRELIMINARY",
   "rivers": [
     {
@@ -16,7 +16,10 @@
       "area_index": "data/published/tamsui-area-index.json",
       "boundary_verified": false,
       "node_coordinates_verified": false,
-      "publication_status": "PRELIMINARY"
+      "publication_status": "PRELIMINARY",
+      "network_manifest": "data/published/tamsui-network-manifest.json",
+      "network_validation": "data/published/tamsui-network-validation.json",
+      "area_validation": "data/published/tamsui-area-validation.json"
     },
     {
       "river_id": "P136-R-LANYANG",
@@ -34,7 +37,10 @@
       "node_coordinates_verified": false,
       "publication_status": "CANDIDATE_PREVIEW_TOPOLOGY_PASS_BOUNDARY_UNVERIFIED",
       "candidate_workflow": ".github/workflows/p136-lanyang-candidate.yml",
-      "feature_count": 178
+      "feature_count": 178,
+      "network_manifest": "data/candidates/lanyang/network-manifest.json",
+      "network_validation": "data/candidates/lanyang/network-validation.json",
+      "area_validation": "data/candidates/lanyang/area-validation.json"
     }
   ]
 }
