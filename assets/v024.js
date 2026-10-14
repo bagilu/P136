@@ -533,6 +533,7 @@ function renderRiverRegistry(entries){
  const list=$('riverRegistryList'),summary=$('riverRegistrySummary');if(!list||!summary)return;
  list.replaceChildren();
  const active=entries.filter(r=>r.network_geojson&&r.outlet_reach_id).length;
+ const referenced=entries.filter(r=>r.reference_point&&!r.network_geojson).length;
  summary.textContent=entries.length+' 條已登錄 / registered · '+active+' 條候選河網 / candidate networks · '+(entries.length-active)+' 條待建置 / awaiting network · '+referenced+' 處參考位置 / reference points';
  for(const r of entries){
   const ready=!!(r.network_geojson&&r.outlet_reach_id),referenced=!!r.reference_point;
