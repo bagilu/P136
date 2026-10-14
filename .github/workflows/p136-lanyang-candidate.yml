@@ -21,6 +21,24 @@ jobs:
         run: python -m pip install pyshp==2.3.1
       - name: Extract and validate preliminary Lanyang candidate
         run: python scripts/build_lanyang_candidate.py
+      - name: Verify candidate output exists before publication
+        run: |
+          test -s data/candidates/lanyang/network.geojson
+          test -s data/candidates/lanyang/network-manifest.json
+          test -s data/candidates/lanyang/network-validation.json
+          test -s data/candidates/lanyang/network-index.json
+          test -s data/candidates/lanyang/area-index.json
+          test -s data/candidates/lanyang/area-validation.json
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path('data/candidates/lanyang')
+          m=json.loads((p/'network-manifest.json').read_text())
+          v=json.loads((p/'network-validation.json').read_text())
+          assert m['feature_count']>=10
+          assert m['published_sha256']==v['output_sha256']
+          assert m['basin_boundary_verified'] is False
+          print('Lanyang candidate ready for manual review:',m['feature_count'],'reaches')
+          PY
       - name: Publish candidate files for manual review only
         run: |
           git config user.name "github-actions[bot]"
