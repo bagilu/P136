@@ -408,6 +408,8 @@ initOverview();
 /* V0.023 Taiwan overview: three candidate networks coexist; only user gestures change the viewport after initial fit. */
 const overviewDatasets=new Map(),overviewLayers=new Map();
 const overviewOutletMarkers=L.layerGroup().addTo(map);
+// Outlet pulses must use SVG even though the river network uses Canvas for performance.
+const overviewOutletSvgRenderer=L.svg({padding:.5});
 const styleSelected={color:'#e0a01b',weight:7,opacity:1};
 const styleDownstream={color:'#d94848',weight:5,opacity:1};
 let overviewActive=null;
@@ -507,7 +509,7 @@ function overviewMarkers(){
   // At the national scale only the available major candidate river systems are labeled.
   // More rivers can be added only after quality-gated publication.
   const label=data.entry.name_zh+' / '+data.entry.name_en;
-  const marker=L.circleMarker([p[1],p[0]],{radius:10,color:'#087bb4',fillColor:'#0c9dc9',fillOpacity:.28,weight:2,p136RiverId:data.entry.river_id,className:'p136-outlet-pulse'});
+  const marker=L.circleMarker([p[1],p[0]],{renderer:overviewOutletSvgRenderer,radius:10,color:'#087bb4',fillColor:'#0c9dc9',fillOpacity:.28,weight:2,p136RiverId:data.entry.river_id,className:'p136-outlet-pulse'});
   marker.bindTooltip(label,{permanent:true,direction:'right',offset:[12,0],className:'p136-outlet-label'});
   marker.on('click',event=>{if(event.originalEvent){L.DomEvent.stopPropagation(event.originalEvent);L.DomEvent.preventDefault(event.originalEvent)}overviewHighlight(data.entry.river_id,data.entry.outlet_reach_id)});
   marker.addTo(overviewOutletMarkers);
