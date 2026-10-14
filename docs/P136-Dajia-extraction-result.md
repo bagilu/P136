@@ -21,3 +21,13 @@
 4. Never infer a verified basin boundary from the network envelope or source-estimated catchment area.
 
 This document records outputs from the actual GitHub Actions artifact, not a proposed or fabricated network.
+
+## 2026-10-15 independent desk review / 官方水系與授權核對
+
+**Official geographic context:** Water Resources Agency Central Region Water Resources Branch describes Dajia River as originating at Nanhudashan, with named tributaries Qijiawan Creek, Nanhu Creek, Hehuan Creek, Zhile Creek and Zhongke Creek, and entering the Taiwan Strait between Daan District and Qingshui District. It describes Daan River as a separate river entering the sea between Dajia and Daan districts. Source: https://www.wra.gov.tw/wracb/cp.aspx?n=41543
+
+**What this verifies:** the official Dajia river name, its broad drainage geography, and the neighboring Daan distinction. **What it does not verify:** whether the 162 HydroRIVERS features actually follow those named tributaries, or whether the selected HydroRIVERS outlet `41011626` corresponds to the true Dajia mouth. The current artifact must be geometrically overlaid on an authoritative water-system map before identity can be marked verified.
+
+**Source license checkpoint:** HydroRIVERS' own documentation states the product is free for scientific, educational and commercial use, but the full HydroSHEDS v1 license governs derivative works, redistribution, and attribution. It requests citation to Lehner & Grill (2013). Source: https://www.hydrosheds.org/products/hydrorivers and https://data.hydrosheds.org/file/technical-documentation/HydroSHEDS_TechDoc_v1_4.pdf. **Do not infer blanket permission for standalone public redistribution** of candidate GeoJSON solely from a free-use statement; inspect license clauses before committing raw/derived river geometry to a public repository.
+
+**Decision:** **HOLD / NOT PUBLISHED.** Official text-based contextual cross-check completed; geometric identity and public redistribution review remain open.
