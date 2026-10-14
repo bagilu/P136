@@ -52,3 +52,26 @@ test('keeps viewport stable while navigating backward through reach selections',
  const after=await page.evaluate(()=>({lat:map.getCenter().lat,lng:map.getCenter().lng,zoom:map.getZoom()}));
  expect(after).toEqual(before);
 });
+
+test('traces selected upstream and downstream while preserving map viewport',async({page})=>{
+ await page.goto('/');
+ await expect(page.locator('#info')).toContainText('621 河段',{timeout:25000});
+ const result=await page.evaluate(()=>{
+  const d=overviewDatasets.get('P136-R-TAMSUI');
+  const id=[...d.reaches.keys()].find(x=>d.idx.reaches[x].upstream_ids.length>0&&overviewDownstream(d,x).size>0);
+  if(!id)throw Error('No internal reach with both upstream and downstream');
+  const before={lat:map.getCenter().lat,lng:map.getCenter().lng,zoom:map.getZoom()};
+  overviewHighlight(d.entry.river_id,id);
+  const after={lat:map.getCenter().lat,lng:map.getCenter().lng,zoom:map.getZoom()};
+  const downstream=[...overviewDownstream(d,id)];
+  return {before,after,selected:d.reaches.get(id).layer.options.color,
+   downstream:downstream.map(x=>d.reaches.get(x).layer.options.color),
+   upstream:d.idx.reaches[id].upstream_ids.slice(0,3).map(x=>d.reaches.get(x).layer.options.color)};
+ });
+ expect(result.after).toEqual(result.before);
+ expect(result.selected).toBe('#e0a01b');
+ expect(result.downstream.length).toBeGreaterThan(0);
+ expect(result.downstream.every(x=>x==='#d94848')).toBe(true);
+ expect(result.upstream.every(x=>x==='#0476ba')).toBe(true);
+ await expect(page.locator('#overviewLegend')).toContainText('Downstream');
+});
