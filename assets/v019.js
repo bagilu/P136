@@ -387,6 +387,7 @@ async function load(){
  catch(e){if(token===generation){resetLayers();status('載入失敗：'+e.message+'。可改選虛構示範模式。');console.error('P136 load error',e)}}
  finally{if(token===generation)$('load').disabled=false}
 }
+$('nodeFullNetwork').addEventListener('click',()=>{stopTravel(true);stopAnimation(true);selected=null;for(const r of reaches.values())r.layer.setStyle(styleOff);if(group.getLayers().length)map.fitBounds(group.getBounds(),{maxZoom:11});updateRainfall();drawHydrograph();status('已返回完整河網 / Full river network restored.')});
 $('river').addEventListener('change',()=>{if($('river').value==='P136-R-LANYANG'&&$('source').value==='real')$('source').value='network';load()});
 $('source').addEventListener('change',load);$('load').addEventListener('click',load);
 $('mode').addEventListener('change',()=>{if(selected)select(selected)});
