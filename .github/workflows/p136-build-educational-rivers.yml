@@ -1,5 +1,9 @@
 name: P136 Build Taiwan Educational Rivers
 on:
+  push:
+    paths:
+      - 'scripts/build_osm_taiwan_educational.py'
+      - '.github/workflows/p136-build-educational-rivers.yml'
   workflow_dispatch:
 permissions:
   contents: write
