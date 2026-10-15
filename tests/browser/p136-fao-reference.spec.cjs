@@ -11,6 +11,12 @@ test('FAO WMS reference is opt-in and does not change river viewport',async({pag
  await expect(page.locator('#faoLayerStatus')).toContainText('FAO');
  const active=await page.evaluate(()=>Array.from(map._layers ? Object.values(map._layers):[]).some(x=>x.wmsParams?.layers==='rivers_asia_37331'));
  expect(active).toBe(true);
+ await page.locator('#faoReferenceLayer').selectOption('river_network');
+ const switched=await page.evaluate(()=>Object.values(map._layers).some(x=>x.wmsParams?.layers==='river_network'));
+ expect(switched).toBe(true);
+ await page.locator('#faoReferenceLayer').selectOption('rivers_world_47950');
+ const world=await page.evaluate(()=>Object.values(map._layers).some(x=>x.wmsParams?.layers==='rivers_world_47950'));
+ expect(world).toBe(true);
  await page.locator('#showFaoReference').uncheck();
  const removed=await page.evaluate(()=>!Object.values(map._layers).some(x=>x.wmsParams?.layers==='rivers_asia_37331'));
  expect(removed).toBe(true);
