@@ -48,6 +48,7 @@ jobs:
           python scripts/build_educational_readiness.py \
             --catalog data/catalog/rivers.json \
             --root . \
+            --extra-candidate P136-R-DAJIA=data/candidates/dajia/network.geojson \
             --output data/candidates/dajia/educational-readiness.json
       - name: Upload candidate review package (never publish automatically)
         if: always()
