@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>P136 V1.1 河道描繪工作臺 / River Tracing Studio</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{font-family:system-ui,"Noto Sans TC",sans-serif;color:#182b3b;background:#f4f7f9}*{box-sizing:border-box}body{margin:0}
+header{background:#123f5d;color:white;padding:12px 20px}header a{color:#d9f5ff}h1{font-size:22px;margin:5px 0}header p{margin:4px 0;font-size:13px}
+main{display:grid;grid-template-columns:minmax(280px,345px) 1fr;min-height:calc(100vh - 112px)}
+aside{padding:14px;background:white;overflow:auto;max-height:calc(100vh - 112px);border-right:1px solid #c9d5df}
+#map{height:calc(100vh - 112px);min-height:500px}fieldset{border:1px solid #b9cbd6;border-radius:8px;margin:0 0 12px;padding:10px}legend{font-weight:700}
+label{display:block;font-size:13px;margin:6px 0}input,select,button{font:inherit}input[type=text],select{width:100%;padding:7px;border:1px solid #a9beca;border-radius:5px}
+button{background:#eef4f8;border:1px solid #7b9bad;border-radius:5px;padding:7px 9px;margin:3px 2px;cursor:pointer;color:#18344a}button[aria-pressed=true]{background:#155c88;color:white}button:disabled{opacity:.45;cursor:not-allowed}
+button.primary{background:#155c88;color:white}.help{font-size:12px;line-height:1.6;color:#40596b}#status{padding:9px;border-radius:6px;background:#edf4f8;font-size:13px;white-space:pre-wrap}
+#points{font-size:12px;max-height:150px;overflow:auto}#points button{font-size:11px}
+@media(max-width:720px){main{display:flex;flex-direction:column}aside{max-height:none}#map{height:65vh;min-height:430px}}
+</style></head><body>
+<header><a href="./">← 返回 P136 河川總覽 / Back to P136</a><h1>河道描繪工作臺 / River Tracing Studio <small>V1.1</small></h1>
+<p>慈濟大學 經營管理學系 好玩實驗室 作品 · 教學探索版 / Educational Preview</p></header>
+<main><aside>
+<fieldset><legend>1. 河川與底圖 / River & map</legend>
+<label for="river">河川名稱 / River name</label><input id="river" type="text" maxlength="100" placeholder="例如：濁水溪">
+<label for="basemap">底圖 / Basemap</label><select id="basemap"><option value="osm">OpenStreetMap 街道地圖</option><option value="esri">Esri World Imagery 衛星影像</option></select>
+<p class="help">衛星影像僅作為目視參考。使用者須自行確認描繪成果的公開使用權利；不得將影像截圖或影像瓦片包含於匯出檔。</p></fieldset>
+<fieldset><legend>2. 描繪工具 / Tools</legend>
+<button id="draw" aria-pressed="true">逐點描繪 / Draw</button><button id="move" aria-pressed="false">移動節點 / Move</button>
+<button id="insert" aria-pressed="false">插入節點 / Insert</button><button id="delete" aria-pressed="false">刪除節點 / Delete</button>
+<button id="mouth" aria-pressed="false">標記河口 / Outlet</button>
+<div><button id="undo">復原 / Undo</button><button id="clear">清空 / Clear</button></div>
+<p class="help">描繪：點擊地圖依序新增節點。移動：拖曳圓點。插入：點選線條加入節點。刪除：點選節點。河口：點擊地圖設定近似出海口。河道方向不自動判定。</p>
+<div id="points"></div></fieldset>
+<fieldset><legend>3. 草稿 / Draft</legend>
+<button id="save" class="primary">儲存到本機 / Save locally</button>
+<button id="load">讀取本機 / Load locally</button>
+<button id="export">匯出 GeoJSON / Export</button>
+<label for="importFile">匯入 GeoJSON / Import</label><input id="importFile" type="file" accept=".geojson,.json,application/geo+json,application/json">
+<p class="help">本版不寫入 Supabase。草稿僅存於這個瀏覽器的 localStorage；請另行匯出 GeoJSON 備份。尚無多人審核或支流拓樸功能。</p></fieldset>
+<div id="status" role="status" aria-live="polite">準備就緒 / Ready</div>
+</aside><div id="map" aria-label="河道描繪地圖 / River tracing map"></div></main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/river-tracer-v11.js?v=1.1"></script></body></html>
