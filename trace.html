@@ -21,7 +21,7 @@ button.primary{background:#155c88;color:white}.help{font-size:12px;line-height:1
 <label for="river">河川名稱 / River name</label><input id="river" type="text" maxlength="100" placeholder="例如：濁水溪">
 <label for="basemap">底圖 / Basemap</label><select id="basemap"><option value="osm">OpenStreetMap 街道地圖</option><option value="esri">Esri World Imagery 衛星影像</option></select>
 <p class="help">衛星影像僅作為目視參考。使用者須自行確認描繪成果的公開使用權利；不得將影像截圖或影像瓦片包含於匯出檔。</p></fieldset>
-<fieldset><legend>2. 河系管理 / River system</legend><label for="systemId">河系 ID / System ID（依建立順序，永久不變）</label><input id="systemId" type="text" readonly placeholder="尚未建立 / Not created"><label for="englishName">英文名稱 / English name</label><input id="englishName" type="text" maxlength="100" placeholder="e.g. Zhuoshui River"><button id="newSystem">建立新河系 / New system</button><label for="riverBranch">目前描繪河道 / Active watercourse</label><select id="riverBranch"></select><button id="newBranch">新增支流 / New tributary</button><button id="connectBranch">連接至主流 / Connect to mainstream</button><p class="help">支流沿上游至下游方向描繪。按「連接至主流」後點選主流線條，系統會建立共同匯流節點並切分主流河段。</p><div id="networkStatus" class="help"></div></fieldset><fieldset><legend>3. 描繪工具 / Tools</legend>
+<fieldset><legend>2. 河系管理 / River system</legend><label for="systemId">河系 ID / System ID（依建立順序，永久不變）</label><input id="systemId" type="text" readonly placeholder="尚未建立 / Not created"><label for="englishName">英文名稱 / English name</label><input id="englishName" type="text" maxlength="100" placeholder="e.g. Zhuoshui River"><button id="newSystem">建立新河系 / New system</button><label for="riverBranch">目前描繪河道 / Active watercourse</label><select id="riverBranch"></select><button id="newBranch">新增支流 / New tributary</button><button id="connectBranch">連接至既有河道 / Connect to river</button><p class="help">支流沿上游至下游方向描繪。按「連接至既有河道」後，點選主流或已連接下游河網的其他支流。系統會建立共同匯流節點並切分目標河道。</p><div id="networkStatus" class="help"></div></fieldset><fieldset><legend>3. 描繪工具 / Tools</legend>
 <button id="draw" aria-pressed="true">逐點描繪 / Draw</button><button id="move" aria-pressed="false">移動節點 / Move</button>
 <button id="insert" aria-pressed="false">插入節點 / Insert</button><button id="delete" aria-pressed="false">刪除節點 / Delete</button>
 <button id="mouth" aria-pressed="false">標記河口 / Outlet</button>
@@ -37,4 +37,4 @@ button.primary{background:#155c88;color:white}.help{font-size:12px;line-height:1
 <div id="status" role="status" aria-live="polite">準備就緒 / Ready</div>
 </aside><div id="map" aria-label="河道描繪地圖 / River tracing map"></div></main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="assets/river-tracer-v12.js?v=1.2"></script></body></html>
+<script src="assets/river-tracer-v12.js?v=1.2.1"></script></body></html>
