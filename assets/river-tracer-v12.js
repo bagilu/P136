@@ -41,7 +41,7 @@ function refresh(){
   const cs=coords(b),selected=b.id===active;
   if(cs.length>=2){const l=L.polyline(cs.map(c=>[c[1],c[0]]),{color:selected?'#e5a027':b.kind==='mainstream'?'#257cb5':'#278e86',weight:selected?5:3,opacity:selected?1:.8}).addTo(layer);
    l.bindTooltip(b.name);
-   l.on('click',e=>{if(e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);if(mode==='connect'&&b.id==='main'){connectAt(e.latlng)}else if(mode==='insert'&&selected){insertAt(e.latlng)}});
+   l.on('click',e=>{if(e.originalEvent)L.DomEvent.stopPropagation(e.originalEvent);if(mode==='connect'&&b.id!==active){connectAt(e.latlng,b)}else if(mode==='insert'&&selected){insertAt(e.latlng)}});
   }
   if(selected)for(let i=0;i<b.nodeIds.length;i++){
    const n=findNode(b.nodeIds[i]);if(!n)continue;
@@ -69,20 +69,23 @@ function segmentIndex(b,ll){
 function insertAt(ll){const b=branch(),hit=segmentIndex(b,ll);if(hit.index<0||hit.dist>15)return msg('請點選距離河道 15px 以內的位置 / Click near the line');
  change(()=>b.nodeIds.splice(hit.index,0,node(hit.point)));msg('已插入節點 / Node inserted');
 }
-function connectAt(ll){
- const b=branch(),main=system.branches[0];if(!b||b.kind!=='tributary'||b.nodeIds.length<2)return msg('請先描繪至少兩個支流節點');
+function connectAt(ll,target){
+ const b=branch();
+ if(!target||target.id===b?.id)return msg('不能連接到目前正在描繪的河道 / Select another watercourse');if(!b||b.kind!=='tributary'||b.nodeIds.length<2)return msg('請先描繪至少兩個支流節點');
  if(b.connectedTo)return msg('此支流已連接；避免重複匯流 / Already connected');
- const hit=segmentIndex(main,ll);if(hit.index<0||hit.dist>15)return msg('請點選主流線條附近 15px 內的位置');
- if(!confirm('確認支流在此匯入主流？系統將建立共同節點。 / Connect tributary to mainstream here?'))return;
+ if(target.kind==='tributary'&&!target.connectedTo)return msg('目標支流尚未連接下游河網，請先完成該支流連接 / Connect target tributary downstream first');
+ const hit=segmentIndex(target,ll);if(hit.index<0||hit.dist>15)return msg('請點選既有河道線條附近 15px 內的位置');
+ if(!confirm('確認「'+b.name+'」匯入「'+target.name+'」？系統將建立共同節點。 / Confirm tributary connection?'))return;
  change(()=>{
-  const before=findNode(main.nodeIds[hit.index-1]),after=findNode(main.nodeIds[hit.index]);
+  const before=findNode(target.nodeIds[hit.index-1]),after=findNode(target.nodeIds[hit.index]);
   const close=n=>Math.hypot(map.latLngToLayerPoint([n.coord[1],n.coord[0]]).x-map.latLngToLayerPoint([hit.point[1],hit.point[0]]).x,map.latLngToLayerPoint([n.coord[1],n.coord[0]]).y-map.latLngToLayerPoint([hit.point[1],hit.point[0]]).y)<8;
-  let junction;if(close(before))junction=before;else if(close(after))junction=after;else{junction=findNode(node(hit.point,'confluence'));main.nodeIds.splice(hit.index,0,junction.id)}
+  let junction;if(close(before))junction=before;else if(close(after))junction=after;else{junction=findNode(node(hit.point,'confluence'));target.nodeIds.splice(hit.index,0,junction.id)}
   junction.type='confluence';const last=findNode(b.nodeIds[b.nodeIds.length-1]);
   const distance=Math.hypot(map.latLngToLayerPoint([last.coord[1],last.coord[0]]).x-map.latLngToLayerPoint([junction.coord[1],junction.coord[0]]).x,map.latLngToLayerPoint([last.coord[1],last.coord[0]]).y-map.latLngToLayerPoint([junction.coord[1],junction.coord[0]]).y);
   if(distance<8){b.nodeIds[b.nodeIds.length-1]=junction.id;if(!system.branches.some(x=>x!==b&&x.nodeIds.includes(last.id)))system.nodes=system.nodes.filter(x=>x.id!==last.id)}
   else b.nodeIds.push(junction.id);
   b.connectedTo=junction.id;
+  b.connectedToBranch=target.id;
  });msg('已建立共同匯流節點 / Shared confluence created');
 }
 function validate(){
@@ -90,14 +93,15 @@ function validate(){
  const ids=new Set();for(const n of system.nodes){if(ids.has(n.id))errors.push('重複節點 ID '+n.id);ids.add(n.id);if(!good(n.coord))errors.push('無效座標 '+n.id)}
  for(const b of system.branches){if(b.nodeIds.length<2)errors.push('河道節點不足 '+b.name);
  for(const id of b.nodeIds)if(!ids.has(id))errors.push('不存在的節點 '+id);
- if(b.kind==='tributary'){if(!b.connectedTo)errors.push('支流尚未連接 '+b.name);else if(!system.branches[0].nodeIds.includes(b.connectedTo)||b.nodeIds.at(-1)!==b.connectedTo)errors.push('支流連接異常 '+b.name)}}
+ if(b.kind==='tributary'){if(!b.connectedTo)errors.push('支流尚未連接 '+b.name);else {const target=system.branches.find(x=>x.id===(b.connectedToBranch||'main'));if(!target||target.id===b.id||!target.nodeIds.includes(b.connectedTo)||b.nodeIds.at(-1)!==b.connectedTo)errors.push('支流連接異常 '+b.name)}}}
+ for(const b of system.branches.filter(x=>x.kind==='tributary')){const seen=new Set([b.id]);let cursor=b;while(cursor.kind==='tributary'&&cursor.connectedTo){const target=system.branches.find(x=>x.id===(cursor.connectedToBranch||'main'));if(!target)break;if(seen.has(target.id)){errors.push('支流連接形成循環 '+b.name);break}seen.add(target.id);cursor=target;}}
  for(const r of system.reaches)if(!ids.has(r.from)||!ids.has(r.to)||r.from===r.to)errors.push('河段端點異常 '+r.id);
  if(!system.outlet)errors.push('尚未標記河口');else if(!ids.has(system.outlet))errors.push('河口節點不存在');
  return errors;
 }
 function setMode(m){mode=m;for(const id of ['draw','move','insert','delete','mouth'])$(id).setAttribute('aria-pressed',String(id===m));$('connectBranch').setAttribute('aria-pressed',String(m==='connect'));refresh();msg('工具 / Tool: '+m)}
 for(const id of ['draw','move','insert','delete','mouth'])$(id).onclick=()=>setMode(id);
-$('newSystem').onclick=newSystem;$('newBranch').onclick=makeBranch;$('connectBranch').onclick=()=>{if(!system)return msg('請先建立河系');setMode('connect')};
+$('newSystem').onclick=newSystem;$('newBranch').onclick=makeBranch;$('connectBranch').onclick=()=>{if(!system)return msg('請先建立河系');setMode('connect');msg('請點選要匯入的既有主流或支流線條 / Click an existing mainstream or tributary')};
 $('riverBranch').onchange=e=>{active=e.target.value;setMode('draw')};
 map.on('click',e=>{if(!system)return msg('請先建立或匯入河系');const c=pt(e.latlng);if(!good(c))return msg('僅支援臺灣周邊座標');
  if(mode==='draw')change(()=>branch().nodeIds.push(node(c)));
