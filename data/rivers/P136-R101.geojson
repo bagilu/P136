@@ -1,0 +1,3962 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "project": "P136",
+    "schema_version": "1.2",
+    "system_id": "P136-R101",
+    "name_zh": "美崙溪",
+    "name_en": "",
+    "status": "draft",
+    "validation_errors": [],
+    "river_system": {
+      "branches": [
+        {
+          "id": "main",
+          "name": "美崙溪",
+          "kind": "mainstream",
+          "nodeIds": [
+            "P136-R101-N0002",
+            "P136-R101-N0003",
+            "P136-R101-N0004",
+            "P136-R101-N0005",
+            "P136-R101-N0006",
+            "P136-R101-N0007",
+            "P136-R101-N0008",
+            "P136-R101-N0009",
+            "P136-R101-N0010",
+            "P136-R101-N0011",
+            "P136-R101-N0012",
+            "P136-R101-N0013",
+            "P136-R101-N0061",
+            "P136-R101-N0062",
+            "P136-R101-N0014",
+            "P136-R101-N0063",
+            "P136-R101-N0015",
+            "P136-R101-N0016",
+            "P136-R101-N0017",
+            "P136-R101-N0018",
+            "P136-R101-N0019",
+            "P136-R101-N0020",
+            "P136-R101-N0021",
+            "P136-R101-N0022",
+            "P136-R101-N0023",
+            "P136-R101-N0093",
+            "P136-R101-N0024",
+            "P136-R101-N0025",
+            "P136-R101-N0026",
+            "P136-R101-N0027",
+            "P136-R101-N0028",
+            "P136-R101-N0029",
+            "P136-R101-N0030",
+            "P136-R101-N0031"
+          ]
+        },
+        {
+          "id": "P136-R101-T001",
+          "name": "須美基溪",
+          "kind": "tributary",
+          "nodeIds": [
+            "P136-R101-N0032",
+            "P136-R101-N0033",
+            "P136-R101-N0034",
+            "P136-R101-N0035",
+            "P136-R101-N0036",
+            "P136-R101-N0037",
+            "P136-R101-N0038",
+            "P136-R101-N0039",
+            "P136-R101-N0040",
+            "P136-R101-N0041",
+            "P136-R101-N0062"
+          ],
+          "connectedTo": "P136-R101-N0062"
+        },
+        {
+          "id": "P136-R101-T002",
+          "name": "八堵毛溪",
+          "kind": "tributary",
+          "nodeIds": [
+            "P136-R101-N0042",
+            "P136-R101-N0043",
+            "P136-R101-N0044",
+            "P136-R101-N0045",
+            "P136-R101-N0046",
+            "P136-R101-N0055",
+            "P136-R101-N0048",
+            "P136-R101-N0049",
+            "P136-R101-N0050",
+            "P136-R101-N0051",
+            "P136-R101-N0052",
+            "P136-R101-N0053",
+            "P136-R101-N0063"
+          ],
+          "connectedTo": "P136-R101-N0063"
+        },
+        {
+          "id": "P136-R101-T003",
+          "name": "無名",
+          "kind": "tributary",
+          "nodeIds": [
+            "P136-R101-N0056",
+            "P136-R101-N0057",
+            "P136-R101-N0058",
+            "P136-R101-N0059",
+            "P136-R101-N0060",
+            "P136-R101-N0051"
+          ],
+          "connectedTo": "P136-R101-N0051",
+          "connectedToBranch": "P136-R101-T002"
+        },
+        {
+          "id": "P136-R101-T004",
+          "name": "無名",
+          "kind": "tributary",
+          "nodeIds": [
+            "P136-R101-N0065",
+            "P136-R101-N0066",
+            "P136-R101-N0067",
+            "P136-R101-N0037"
+          ],
+          "connectedTo": "P136-R101-N0037",
+          "connectedToBranch": "P136-R101-T001"
+        },
+        {
+          "id": "P136-R101-T005",
+          "name": "無名",
+          "kind": "tributary",
+          "nodeIds": [
+            "P136-R101-N0068",
+            "P136-R101-N0069",
+            "P136-R101-N0066"
+          ],
+          "connectedTo": "P136-R101-N0066",
+          "connectedToBranch": "P136-R101-T004"
+        },
+        {
+          "id": "P136-R101-T006",
+          "name": "無名",
+          "kind": "tributary",
+          "nodeIds": [
+            "P136-R101-N0070",
+            "P136-R101-N0071",
+            "P136-R101-N0072",
+            "P136-R101-N0073",
+            "P136-R101-N0087",
+            "P136-R101-N0074",
+            "P136-R101-N0075",
+            "P136-R101-N0076",
+            "P136-R101-N0017"
+          ],
+          "connectedTo": "P136-R101-N0017",
+          "connectedToBranch": "main"
+        },
+        {
+          "id": "P136-R101-T007",
+          "name": "無名",
+          "kind": "tributary",
+          "nodeIds": [
+            "P136-R101-N0077",
+            "P136-R101-N0078",
+            "P136-R101-N0079",
+            "P136-R101-N0071"
+          ],
+          "connectedTo": "P136-R101-N0071",
+          "connectedToBranch": "P136-R101-T006"
+        },
+        {
+          "id": "P136-R101-T008",
+          "name": "無名",
+          "kind": "tributary",
+          "nodeIds": [
+            "P136-R101-N0080",
+            "P136-R101-N0081",
+            "P136-R101-N0073"
+          ],
+          "connectedTo": "P136-R101-N0073",
+          "connectedToBranch": "P136-R101-T006"
+        },
+        {
+          "id": "P136-R101-T009",
+          "name": "無名",
+          "kind": "tributary",
+          "nodeIds": [
+            "P136-R101-N0082",
+            "P136-R101-N0083",
+            "P136-R101-N0090",
+            "P136-R101-N0084",
+            "P136-R101-N0085",
+            "P136-R101-N0086",
+            "P136-R101-N0087"
+          ],
+          "connectedTo": "P136-R101-N0087",
+          "connectedToBranch": "P136-R101-T006"
+        },
+        {
+          "id": "P136-R101-T010",
+          "name": "無名",
+          "kind": "tributary",
+          "nodeIds": [
+            "P136-R101-N0088",
+            "P136-R101-N0089",
+            "P136-R101-N0090"
+          ],
+          "connectedTo": "P136-R101-N0090",
+          "connectedToBranch": "P136-R101-T009"
+        },
+        {
+          "id": "P136-R101-T011",
+          "name": "無名",
+          "kind": "tributary",
+          "nodeIds": [
+            "P136-R101-N0091",
+            "P136-R101-N0092",
+            "P136-R101-N0093"
+          ],
+          "connectedTo": "P136-R101-N0093",
+          "connectedToBranch": "main"
+        },
+        {
+          "id": "P136-R101-T012",
+          "name": "無名",
+          "kind": "tributary",
+          "nodeIds": [
+            "P136-R101-N0094",
+            "P136-R101-N0095",
+            "P136-R101-N0021"
+          ],
+          "connectedTo": "P136-R101-N0021",
+          "connectedToBranch": "main"
+        }
+      ],
+      "outlet_node_id": "P136-R101-N0001",
+      "next": {
+        "N": 96,
+        "S": 102,
+        "T": 13
+      }
+    },
+    "source": "student_manual_tracing",
+    "note": "Unverified educational tracing; coordinates are not surveyed"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0001",
+        "feature_type": "node",
+        "node_type": "outlet"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.619639,
+          23.977469
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0002",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.619639,
+          23.977469
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0003",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.617708,
+          23.980332
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0004",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.614318,
+          23.981351
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0005",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.613932,
+          23.979038
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0006",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.610584,
+          23.980802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0007",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.61037,
+          23.984763
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0008",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.607537,
+          23.988331
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0009",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.611443,
+          23.996917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0010",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.610498,
+          24.002014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0011",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.611099,
+          24.006091
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0012",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.607924,
+          24.007581
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0013",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.60861,
+          24.013461
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0014",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.593847,
+          24.013539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0015",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.56106,
+          23.99825
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0016",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.550245,
+          24.001465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0017",
+        "feature_type": "node",
+        "node_type": "confluence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.542263,
+          24.010325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0018",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.534023,
+          24.012991
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0019",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.53059,
+          24.014245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0020",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.528616,
+          24.014167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0021",
+        "feature_type": "node",
+        "node_type": "confluence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.528358,
+          24.011893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0022",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.524153,
+          24.013853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0023",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.525869,
+          24.015735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0024",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.522264,
+          24.016832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0025",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.516171,
+          24.01989
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0026",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.509733,
+          24.017851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0027",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.505527,
+          24.010952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0028",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.502094,
+          24.009227
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0029",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.499434,
+          24.010011
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0030",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.498489,
+          24.008522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0031",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.493511,
+          24.01056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0032",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.56651,
+          24.039174
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0033",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.570158,
+          24.040742
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0034",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.574664,
+          24.040938
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0035",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.575952,
+          24.042506
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0036",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.580973,
+          24.044661
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0037",
+        "feature_type": "node",
+        "node_type": "confluence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.586337,
+          24.049325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0038",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.592216,
+          24.047953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0039",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.597195,
+          24.036313
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0040",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.601787,
+          24.028827
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0041",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.605788,
+          24.015245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0042",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.562626,
+          24.026416
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0043",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.563013,
+          24.026181
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0044",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.564622,
+          24.026005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0045",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.565909,
+          24.026103
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0046",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.567304,
+          24.02573
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0048",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.571338,
+          24.022163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0049",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.574814,
+          24.021458
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0050",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.575801,
+          24.019204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0051",
+        "feature_type": "node",
+        "node_type": "confluence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.57975,
+          24.019008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0052",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.584985,
+          24.014323
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0053",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.589384,
+          24.014265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0055",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.569622,
+          24.022849
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0056",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.578634,
+          24.023437
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0057",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.57902,
+          24.022653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0058",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.57902,
+          24.021869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0059",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.579256,
+          24.020968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0060",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.579492,
+          24.019701
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0061",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.606979,
+          24.01347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0062",
+        "feature_type": "node",
+        "node_type": "confluence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.605692,
+          24.013469
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0063",
+        "feature_type": "node",
+        "node_type": "confluence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.591557,
+          24.012471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0065",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.575866,
+          24.057045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0066",
+        "feature_type": "node",
+        "node_type": "confluence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.579535,
+          24.051559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0067",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.584406,
+          24.04956
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0068",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.576123,
+          24.050853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0069",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.577625,
+          24.05152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0070",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.540375,
+          24.043015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0071",
+        "feature_type": "node",
+        "node_type": "confluence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54016,
+          24.033413
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0072",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.541619,
+          24.030199
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0073",
+        "feature_type": "node",
+        "node_type": "confluence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.543722,
+          24.029572
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0074",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.541491,
+          24.023418
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0075",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.542649,
+          24.016519
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0076",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54458,
+          24.011893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0077",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.530719,
+          24.03792
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0078",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.533165,
+          24.034785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0079",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.536942,
+          24.033961
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0080",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.54767,
+          24.036156
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0081",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.545568,
+          24.031296
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0082",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.5484,
+          24.040428
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0083",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.549902,
+          24.034432
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0084",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.551447,
+          24.032511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0085",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.551104,
+          24.029532
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0086",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.546082,
+          24.027377
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0087",
+        "feature_type": "node",
+        "node_type": "confluence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.542489,
+          24.026171
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0088",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.557584,
+          24.037685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0089",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.553507,
+          24.034314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0090",
+        "feature_type": "node",
+        "node_type": "confluence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.551066,
+          24.032985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0091",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.521406,
+          24.034471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0092",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.522608,
+          24.023966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0093",
+        "feature_type": "node",
+        "node_type": "confluence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.523217,
+          24.016542
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0094",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.518574,
+          23.998407
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-N0095",
+        "feature_type": "node",
+        "node_type": "vertex"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.529217,
+          24.008757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0001",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0002",
+        "to_node": "P136-R101-N0003",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.619639,
+            23.977469
+          ],
+          [
+            121.617708,
+            23.980332
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0002",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0003",
+        "to_node": "P136-R101-N0004",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.617708,
+            23.980332
+          ],
+          [
+            121.614318,
+            23.981351
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0003",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0004",
+        "to_node": "P136-R101-N0005",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.614318,
+            23.981351
+          ],
+          [
+            121.613932,
+            23.979038
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0004",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0005",
+        "to_node": "P136-R101-N0006",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.613932,
+            23.979038
+          ],
+          [
+            121.610584,
+            23.980802
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0005",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0006",
+        "to_node": "P136-R101-N0007",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.610584,
+            23.980802
+          ],
+          [
+            121.61037,
+            23.984763
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0006",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0007",
+        "to_node": "P136-R101-N0008",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.61037,
+            23.984763
+          ],
+          [
+            121.607537,
+            23.988331
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0007",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0008",
+        "to_node": "P136-R101-N0009",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.607537,
+            23.988331
+          ],
+          [
+            121.611443,
+            23.996917
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0008",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0009",
+        "to_node": "P136-R101-N0010",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.611443,
+            23.996917
+          ],
+          [
+            121.610498,
+            24.002014
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0009",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0010",
+        "to_node": "P136-R101-N0011",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.610498,
+            24.002014
+          ],
+          [
+            121.611099,
+            24.006091
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0010",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0011",
+        "to_node": "P136-R101-N0012",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.611099,
+            24.006091
+          ],
+          [
+            121.607924,
+            24.007581
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0011",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0012",
+        "to_node": "P136-R101-N0013",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.607924,
+            24.007581
+          ],
+          [
+            121.60861,
+            24.013461
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0058",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0013",
+        "to_node": "P136-R101-N0061",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.60861,
+            24.013461
+          ],
+          [
+            121.606979,
+            24.01347
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0060",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0061",
+        "to_node": "P136-R101-N0062",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.606979,
+            24.01347
+          ],
+          [
+            121.605692,
+            24.013469
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0061",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0062",
+        "to_node": "P136-R101-N0014",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.605692,
+            24.013469
+          ],
+          [
+            121.593847,
+            24.013539
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0063",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0014",
+        "to_node": "P136-R101-N0063",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.593847,
+            24.013539
+          ],
+          [
+            121.591557,
+            24.012471
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0064",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0063",
+        "to_node": "P136-R101-N0015",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.591557,
+            24.012471
+          ],
+          [
+            121.56106,
+            23.99825
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0014",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0015",
+        "to_node": "P136-R101-N0016",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.56106,
+            23.99825
+          ],
+          [
+            121.550245,
+            24.001465
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0015",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0016",
+        "to_node": "P136-R101-N0017",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.550245,
+            24.001465
+          ],
+          [
+            121.542263,
+            24.010325
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0016",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0017",
+        "to_node": "P136-R101-N0018",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.542263,
+            24.010325
+          ],
+          [
+            121.534023,
+            24.012991
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0017",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0018",
+        "to_node": "P136-R101-N0019",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.534023,
+            24.012991
+          ],
+          [
+            121.53059,
+            24.014245
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0018",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0019",
+        "to_node": "P136-R101-N0020",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.53059,
+            24.014245
+          ],
+          [
+            121.528616,
+            24.014167
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0019",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0020",
+        "to_node": "P136-R101-N0021",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.528616,
+            24.014167
+          ],
+          [
+            121.528358,
+            24.011893
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0020",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0021",
+        "to_node": "P136-R101-N0022",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.528358,
+            24.011893
+          ],
+          [
+            121.524153,
+            24.013853
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0021",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0022",
+        "to_node": "P136-R101-N0023",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.524153,
+            24.013853
+          ],
+          [
+            121.525869,
+            24.015735
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0097",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0023",
+        "to_node": "P136-R101-N0093",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.525869,
+            24.015735
+          ],
+          [
+            121.523217,
+            24.016542
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0098",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0093",
+        "to_node": "P136-R101-N0024",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.523217,
+            24.016542
+          ],
+          [
+            121.522264,
+            24.016832
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0023",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0024",
+        "to_node": "P136-R101-N0025",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.522264,
+            24.016832
+          ],
+          [
+            121.516171,
+            24.01989
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0024",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0025",
+        "to_node": "P136-R101-N0026",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.516171,
+            24.01989
+          ],
+          [
+            121.509733,
+            24.017851
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0025",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0026",
+        "to_node": "P136-R101-N0027",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.509733,
+            24.017851
+          ],
+          [
+            121.505527,
+            24.010952
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0026",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0027",
+        "to_node": "P136-R101-N0028",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.505527,
+            24.010952
+          ],
+          [
+            121.502094,
+            24.009227
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0027",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0028",
+        "to_node": "P136-R101-N0029",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.502094,
+            24.009227
+          ],
+          [
+            121.499434,
+            24.010011
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0028",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0029",
+        "to_node": "P136-R101-N0030",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.499434,
+            24.010011
+          ],
+          [
+            121.498489,
+            24.008522
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0029",
+        "feature_type": "reach",
+        "branch_id": "main",
+        "river_name": "美崙溪",
+        "river_type": "mainstream",
+        "from_node": "P136-R101-N0030",
+        "to_node": "P136-R101-N0031",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.498489,
+            24.008522
+          ],
+          [
+            121.493511,
+            24.01056
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0030",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T001",
+        "river_name": "須美基溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0032",
+        "to_node": "P136-R101-N0033",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.56651,
+            24.039174
+          ],
+          [
+            121.570158,
+            24.040742
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0031",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T001",
+        "river_name": "須美基溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0033",
+        "to_node": "P136-R101-N0034",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.570158,
+            24.040742
+          ],
+          [
+            121.574664,
+            24.040938
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0032",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T001",
+        "river_name": "須美基溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0034",
+        "to_node": "P136-R101-N0035",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.574664,
+            24.040938
+          ],
+          [
+            121.575952,
+            24.042506
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0033",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T001",
+        "river_name": "須美基溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0035",
+        "to_node": "P136-R101-N0036",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.575952,
+            24.042506
+          ],
+          [
+            121.580973,
+            24.044661
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0034",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T001",
+        "river_name": "須美基溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0036",
+        "to_node": "P136-R101-N0037",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.580973,
+            24.044661
+          ],
+          [
+            121.586337,
+            24.049325
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0035",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T001",
+        "river_name": "須美基溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0037",
+        "to_node": "P136-R101-N0038",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.586337,
+            24.049325
+          ],
+          [
+            121.592216,
+            24.047953
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0036",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T001",
+        "river_name": "須美基溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0038",
+        "to_node": "P136-R101-N0039",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.592216,
+            24.047953
+          ],
+          [
+            121.597195,
+            24.036313
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0037",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T001",
+        "river_name": "須美基溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0039",
+        "to_node": "P136-R101-N0040",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.597195,
+            24.036313
+          ],
+          [
+            121.601787,
+            24.028827
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0038",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T001",
+        "river_name": "須美基溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0040",
+        "to_node": "P136-R101-N0041",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.601787,
+            24.028827
+          ],
+          [
+            121.605788,
+            24.015245
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0062",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T001",
+        "river_name": "須美基溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0041",
+        "to_node": "P136-R101-N0062",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.605788,
+            24.015245
+          ],
+          [
+            121.605692,
+            24.013469
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0039",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T002",
+        "river_name": "八堵毛溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0042",
+        "to_node": "P136-R101-N0043",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.562626,
+            24.026416
+          ],
+          [
+            121.563013,
+            24.026181
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0040",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T002",
+        "river_name": "八堵毛溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0043",
+        "to_node": "P136-R101-N0044",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.563013,
+            24.026181
+          ],
+          [
+            121.564622,
+            24.026005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0041",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T002",
+        "river_name": "八堵毛溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0044",
+        "to_node": "P136-R101-N0045",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.564622,
+            24.026005
+          ],
+          [
+            121.565909,
+            24.026103
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0042",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T002",
+        "river_name": "八堵毛溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0045",
+        "to_node": "P136-R101-N0046",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.565909,
+            24.026103
+          ],
+          [
+            121.567304,
+            24.02573
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0052",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T002",
+        "river_name": "八堵毛溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0046",
+        "to_node": "P136-R101-N0055",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.567304,
+            24.02573
+          ],
+          [
+            121.569622,
+            24.022849
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0053",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T002",
+        "river_name": "八堵毛溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0055",
+        "to_node": "P136-R101-N0048",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.569622,
+            24.022849
+          ],
+          [
+            121.571338,
+            24.022163
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0045",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T002",
+        "river_name": "八堵毛溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0048",
+        "to_node": "P136-R101-N0049",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.571338,
+            24.022163
+          ],
+          [
+            121.574814,
+            24.021458
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0046",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T002",
+        "river_name": "八堵毛溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0049",
+        "to_node": "P136-R101-N0050",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.574814,
+            24.021458
+          ],
+          [
+            121.575801,
+            24.019204
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0047",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T002",
+        "river_name": "八堵毛溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0050",
+        "to_node": "P136-R101-N0051",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.575801,
+            24.019204
+          ],
+          [
+            121.57975,
+            24.019008
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0048",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T002",
+        "river_name": "八堵毛溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0051",
+        "to_node": "P136-R101-N0052",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.57975,
+            24.019008
+          ],
+          [
+            121.584985,
+            24.014323
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0049",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T002",
+        "river_name": "八堵毛溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0052",
+        "to_node": "P136-R101-N0053",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.584985,
+            24.014323
+          ],
+          [
+            121.589384,
+            24.014265
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0065",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T002",
+        "river_name": "八堵毛溪",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0053",
+        "to_node": "P136-R101-N0063",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.589384,
+            24.014265
+          ],
+          [
+            121.591557,
+            24.012471
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0054",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T003",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0056",
+        "to_node": "P136-R101-N0057",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.578634,
+            24.023437
+          ],
+          [
+            121.57902,
+            24.022653
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0055",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T003",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0057",
+        "to_node": "P136-R101-N0058",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.57902,
+            24.022653
+          ],
+          [
+            121.57902,
+            24.021869
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0056",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T003",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0058",
+        "to_node": "P136-R101-N0059",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.57902,
+            24.021869
+          ],
+          [
+            121.579256,
+            24.020968
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0057",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T003",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0059",
+        "to_node": "P136-R101-N0060",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.579256,
+            24.020968
+          ],
+          [
+            121.579492,
+            24.019701
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0067",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T003",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0060",
+        "to_node": "P136-R101-N0051",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.579492,
+            24.019701
+          ],
+          [
+            121.57975,
+            24.019008
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0068",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T004",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0065",
+        "to_node": "P136-R101-N0066",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.575866,
+            24.057045
+          ],
+          [
+            121.579535,
+            24.051559
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0069",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T004",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0066",
+        "to_node": "P136-R101-N0067",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.579535,
+            24.051559
+          ],
+          [
+            121.584406,
+            24.04956
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0070",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T004",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0067",
+        "to_node": "P136-R101-N0037",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.584406,
+            24.04956
+          ],
+          [
+            121.586337,
+            24.049325
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0071",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T005",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0068",
+        "to_node": "P136-R101-N0069",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.576123,
+            24.050853
+          ],
+          [
+            121.577625,
+            24.05152
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0072",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T005",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0069",
+        "to_node": "P136-R101-N0066",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.577625,
+            24.05152
+          ],
+          [
+            121.579535,
+            24.051559
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0073",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T006",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0070",
+        "to_node": "P136-R101-N0071",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.540375,
+            24.043015
+          ],
+          [
+            121.54016,
+            24.033413
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0074",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T006",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0071",
+        "to_node": "P136-R101-N0072",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.54016,
+            24.033413
+          ],
+          [
+            121.541619,
+            24.030199
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0075",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T006",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0072",
+        "to_node": "P136-R101-N0073",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.541619,
+            24.030199
+          ],
+          [
+            121.543722,
+            24.029572
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0089",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T006",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0073",
+        "to_node": "P136-R101-N0087",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.543722,
+            24.029572
+          ],
+          [
+            121.542489,
+            24.026171
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0090",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T006",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0087",
+        "to_node": "P136-R101-N0074",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.542489,
+            24.026171
+          ],
+          [
+            121.541491,
+            24.023418
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0077",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T006",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0074",
+        "to_node": "P136-R101-N0075",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.541491,
+            24.023418
+          ],
+          [
+            121.542649,
+            24.016519
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0078",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T006",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0075",
+        "to_node": "P136-R101-N0076",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.542649,
+            24.016519
+          ],
+          [
+            121.54458,
+            24.011893
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0079",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T006",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0076",
+        "to_node": "P136-R101-N0017",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.54458,
+            24.011893
+          ],
+          [
+            121.542263,
+            24.010325
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0080",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T007",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0077",
+        "to_node": "P136-R101-N0078",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.530719,
+            24.03792
+          ],
+          [
+            121.533165,
+            24.034785
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0081",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T007",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0078",
+        "to_node": "P136-R101-N0079",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.533165,
+            24.034785
+          ],
+          [
+            121.536942,
+            24.033961
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0082",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T007",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0079",
+        "to_node": "P136-R101-N0071",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.536942,
+            24.033961
+          ],
+          [
+            121.54016,
+            24.033413
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0083",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T008",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0080",
+        "to_node": "P136-R101-N0081",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.54767,
+            24.036156
+          ],
+          [
+            121.545568,
+            24.031296
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0084",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T008",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0081",
+        "to_node": "P136-R101-N0073",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.545568,
+            24.031296
+          ],
+          [
+            121.543722,
+            24.029572
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0085",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T009",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0082",
+        "to_node": "P136-R101-N0083",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.5484,
+            24.040428
+          ],
+          [
+            121.549902,
+            24.034432
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0093",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T009",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0083",
+        "to_node": "P136-R101-N0090",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.549902,
+            24.034432
+          ],
+          [
+            121.551066,
+            24.032985
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0094",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T009",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0090",
+        "to_node": "P136-R101-N0084",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.551066,
+            24.032985
+          ],
+          [
+            121.551447,
+            24.032511
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0087",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T009",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0084",
+        "to_node": "P136-R101-N0085",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.551447,
+            24.032511
+          ],
+          [
+            121.551104,
+            24.029532
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0088",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T009",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0085",
+        "to_node": "P136-R101-N0086",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.551104,
+            24.029532
+          ],
+          [
+            121.546082,
+            24.027377
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0091",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T009",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0086",
+        "to_node": "P136-R101-N0087",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.546082,
+            24.027377
+          ],
+          [
+            121.542489,
+            24.026171
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0092",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T010",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0088",
+        "to_node": "P136-R101-N0089",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.557584,
+            24.037685
+          ],
+          [
+            121.553507,
+            24.034314
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0095",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T010",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0089",
+        "to_node": "P136-R101-N0090",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.553507,
+            24.034314
+          ],
+          [
+            121.551066,
+            24.032985
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0096",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T011",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0091",
+        "to_node": "P136-R101-N0092",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.521406,
+            24.034471
+          ],
+          [
+            121.522608,
+            24.023966
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0099",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T011",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0092",
+        "to_node": "P136-R101-N0093",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.522608,
+            24.023966
+          ],
+          [
+            121.523217,
+            24.016542
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0100",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T012",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0094",
+        "to_node": "P136-R101-N0095",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.518574,
+            23.998407
+          ],
+          [
+            121.529217,
+            24.008757
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "P136-R101-S0101",
+        "feature_type": "reach",
+        "branch_id": "P136-R101-T012",
+        "river_name": "無名",
+        "river_type": "tributary",
+        "from_node": "P136-R101-N0095",
+        "to_node": "P136-R101-N0021",
+        "direction": "upstream_to_downstream"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            121.529217,
+            24.008757
+          ],
+          [
+            121.528358,
+            24.011893
+          ]
+        ]
+      }
+    }
+  ]
+}
