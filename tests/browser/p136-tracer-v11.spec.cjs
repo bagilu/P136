@@ -4,13 +4,11 @@ test('V1.1 independent tracing studio supports point editing, outlet and GeoJSON
  await page.goto('/trace.html');
  await expect(page.locator('#map .leaflet-container, #map.leaflet-container')).toHaveCount(1);
  await page.locator('#river').fill('教學測試河川');
- await page.evaluate(()=>{
-  map.fire('click',{latlng:L.latLng(23.7,121)});
-  map.fire('click',{latlng:L.latLng(23.71,121.01)});
- });
+ await page.locator('#map').click({position:{x:180,y:180}});
+ await page.locator('#map').click({position:{x:220,y:215}});
  await expect(page.locator('#points')).toContainText('2 個節點');
  await page.locator('#mouth').click();
- await page.evaluate(()=>map.fire('click',{latlng:L.latLng(23.69,121.02)}));
+ await page.locator('#map').click({position:{x:250,y:250}});
  await expect(page.locator('#points')).toContainText('已標記近似出海口');
  await page.locator('#save').click();
  await expect(page.locator('#status')).toContainText('已儲存');
