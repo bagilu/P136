@@ -1,0 +1,24 @@
+name: P136 FAO Taiwan Pixel Check
+on:
+  push:
+    paths:
+      - 'scripts/check_fao_taiwan_pixels.py'
+      - '.github/workflows/p136-fao-pixel-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow==11.3.0
+      - run: python scripts/check_fao_taiwan_pixels.py --output reports/fao-taiwan-pixels.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: p136-fao-taiwan-pixel-report
+          path: reports/fao-taiwan-pixels.json
+          retention-days: 30
