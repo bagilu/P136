@@ -4,6 +4,8 @@
 (function(){
   const toggle=document.getElementById('showFaoReference');
   if(!toggle||typeof L==='undefined'||typeof map==='undefined')return;
+  const choice=document.getElementById('faoReferenceLayer');
+  const allowed=new Set(['rivers_asia_37331','rivers_world_47950','river_network']);
   const layer=L.tileLayer.wms('https://data.apps.fao.org/map/gsrv/gsrv1/aquamaps/wms',{
     layers:'rivers_asia_37331',styles:'',format:'image/png',transparent:true,
     version:'1.1.1',opacity:0.65,interactive:false,
@@ -19,11 +21,19 @@
   toggle.addEventListener('change',()=>{
     const note=document.getElementById('faoLayerStatus');
     if(toggle.checked){
+      const selected=choice?.value;
+      layer.setParams({layers:allowed.has(selected)?selected:'rivers_asia_37331'});
       layer.addTo(map);
       if(note)note.textContent='FAO 河川影像參考（非可點選河段） / FAO image reference only.';
     }else{
       map.removeLayer(layer);
       if(note)note.textContent='';
     }
+  });
+  choice?.addEventListener('change',()=>{
+    if(!allowed.has(choice.value))return;
+    layer.setParams({layers:choice.value});
+    const note=document.getElementById('faoLayerStatus');
+    if(note&&toggle.checked)note.textContent='已切換 FAO 參考圖層 / FAO reference layer changed.';
   });
 })();
