@@ -1,7 +1,7 @@
 const {test,expect}=require('@playwright/test');
 test('V1.2 supports tributary joining another tributary and retains topology in GeoJSON',async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- page.on('dialog',async d=>{if(d.type()==='prompt')await d.accept(d.message().includes('三位數')?'902':d.message().includes('支流名稱')?(await page.locator('#riverBranch option').count())===1?'支流 A':'支流 B':'902');else await d.accept()});
+ let promptCount=0;page.on('dialog',async d=>{if(d.type()==='prompt'){promptCount++;await d.accept(promptCount===1?'902':promptCount===2?'支流 A':'支流 B')}else await d.accept()});
  await page.goto('/trace.html');await page.locator('#river').fill('拓樸測試河系');await page.locator('#newSystem').click();
  const map=page.locator('#map');
  await map.click({position:{x:180,y:160}});await map.click({position:{x:180,y:270}});await map.click({position:{x:180,y:380}});
