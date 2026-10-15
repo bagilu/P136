@@ -13,8 +13,14 @@ def inspect(path):
   raise ValueError('Expected ZIP archive with shapefile components')
  reports=[]
  with zipfile.ZipFile(io.BytesIO(raw)) as z:
-  names=z.namelist()
+  infos=z.infolist()
+  names=[i.filename for i in infos]
   if len(names)>2000:raise ValueError('Archive has too many members')
+  if len(set(n.lower() for n in names))!=len(names):raise ValueError('Archive contains duplicate or case-colliding names')
+  if any(i.file_size>500_000_000 for i in infos) or sum(i.file_size for i in infos)>1_000_000_000:
+   raise ValueError('Uncompressed archive exceeds inspection safety limits')
+  if any(n.startswith('/') or '..' in pathlib.PurePosixPath(n).parts or '\\\\' in n for n in names):
+   raise ValueError('Archive contains unsafe member path')
   for name in names:
    if not name.lower().endswith('.shp'):continue
    stem=name[:-4]
@@ -22,16 +28,18 @@ def inspect(path):
    shx=index.get((stem+'.shx').lower())
    dbf=index.get((stem+'.dbf').lower())
    prj=index.get((stem+'.prj').lower())
-   if not shx or not dbf:
-    reports.append({'shp':name,'error':'missing .shx or .dbf'})
+   if not shx or not dbf or not prj:
+    reports.append({'shp':name,'error':'missing .shx, .dbf or .prj; CRS cannot be established'})
     continue
-   with z.open(name) as sf,z.open(shx) as xf,z.open(dbf) as df:
-    reader=shapefile.Reader(shp=sf,shx=xf,dbf=df)
-    reports.append({'shp':name,'geometry_type':reader.shapeTypeName,
-      'record_count':len(reader),'fields':[f[0] for f in reader.fields[1:]],
-      'projection_wkt':z.read(prj).decode('utf-8','replace')[:3000] if prj else None,
-      'projection_confirmed':False,
-      'dajia_identity_confirmed':False})
+   try:
+    with z.open(name) as sf,z.open(shx) as xf,z.open(dbf) as df:
+     reader=shapefile.Reader(shp=sf,shx=xf,dbf=df)
+     reports.append({'shp':name,'geometry_type':reader.shapeTypeName,
+       'record_count':len(reader),'fields':[f[0] for f in reader.fields[1:]],
+       'projection_wkt':z.read(prj).decode('utf-8','replace')[:3000],
+       'projection_confirmed':False,'dajia_identity_confirmed':False})
+   except (ValueError, OSError, EOFError, shapefile.ShapefileException) as exc:
+    reports.append({'shp':name,'error':'invalid shapefile components: '+type(exc).__name__})
  if not reports:raise ValueError('No SHP files found in ZIP')
  return {'status':'INVENTORY_ONLY','archive_sha256':hashlib.sha256(raw).hexdigest(),
   'archive_bytes':len(raw),'shapefiles':reports,
