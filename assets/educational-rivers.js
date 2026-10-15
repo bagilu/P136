@@ -13,6 +13,9 @@
  '<p style="font-size:12px;line-height:1.5">教學第一版：以 OpenStreetMap 具名河道線段展示臺灣河川。各線段可點選；其他具名河道不代表已確認隸屬某一主流。河口圓點僅為大致參考位置，非實測河口。 / Educational preview from OSM named river ways. Click any segment. Tributary membership and approximate outlet markers are unverified.</p>'+
  '<label><input type="checkbox" id="educationalRiversVisible" checked> 顯示河川及支流 / Show named river lines</label>'+
  '<label style="display:block"><input type="checkbox" id="educationalOutletsVisible" checked> 顯示出海口參考圓點 / Show approximate outlets</label>'+
+ '<label for="educationalMajorRiver" style="display:block;margin-top:8px">主要河川快速定位 / Locate a major river</label>'+ 
+ '<select id="educationalMajorRiver"><option value="">全臺灣具名河道 / All named rivers</option></select>'+ 
+ '<button id="educationalRiverReset" type="button">返回全臺灣 / Show All Taiwan</button>'+ 
  '<div id="educationalRiverStatus" role="status" style="font-size:12px;margin:8px 0">正在讀取河道 / Loading river ways…</div>'+
  '<div id="educationalRiverSelection" role="status" style="font-size:12px;line-height:1.6"></div>';
  catalog.parentNode.insertBefore(panel,catalog);
@@ -23,6 +26,26 @@
  const lineToggle=document.getElementById('educationalRiversVisible');
  const outletToggle=document.getElementById('educationalOutletsVisible');
  let selected=null;
+ const majorSelect=document.getElementById('educationalMajorRiver');
+ const majorReset=document.getElementById('educationalRiverReset');
+ const byMajor=new Map();
+ const baseStyle=new Map();
+ function filterMajor(name){
+  if(selected){selected.setStyle(baseStyle.get(selected));selected=null;}
+  const visible=[];
+  lines.eachLayer(line=>{
+   const match=!name||line.p136Major===name;
+   line.setStyle(match?baseStyle.get(line):{color:'#b7c9d3',weight:1,opacity:.13});
+   if(match)visible.push(line);
+  });
+  if(name){
+   const group=byMajor.get(name)||[];
+   if(group.length){map.fitBounds(L.featureGroup(group).getBounds(),{padding:[25,25],maxZoom:11});}
+   selection.textContent=name+' · '+group.length+' 個同名河段 / named segments. 此選取不包含未確認歸屬的支流 / Unverified tributaries are not included.';
+  }else{selection.textContent='全臺灣具名河道 / All named river reaches';map.fitBounds([[21.85,120.0],[25.35,122.1]],{padding:[20,20]});}
+ }
+ majorSelect.addEventListener('change',()=>filterMajor(majorSelect.value));
+ majorReset.addEventListener('click',()=>{majorSelect.value='';filterMajor('');});
  function esc(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
  function draw(data){
   const features=data.features||[];
@@ -35,7 +58,7 @@
    });
    line.on('click',event=>{
     if(event.originalEvent)L.DomEvent.stopPropagation(event.originalEvent);
-    if(selected)selected.setStyle(selected.options.p136Default);
+    if(selected)selected.setStyle(baseStyle.get(selected));
     selected=line;
     line.setStyle({color:'#e59a12',weight:6,opacity:1});
     line.bringToFront();
@@ -44,10 +67,18 @@
       '；不代表已核定支流歸屬 / Basin membership unverified.';
    });
    line.options.p136Default={color:line.options.color,weight:line.options.weight,opacity:line.options.opacity};
+   baseStyle.set(line,line.options.p136Default);
+   line.p136Major=p.major_river||null;
+   if(line.p136Major){if(!byMajor.has(line.p136Major))byMajor.set(line.p136Major,[]);byMajor.get(line.p136Major).push(line);}
    line.bindTooltip(esc(p.name||'具名河道')+' · OSM '+p.osm_way_id);
    lines.addLayer(line);
   }
   const points=data.metadata?.outlet_reference_points||{};
+  for(const name of Object.keys(points)){
+   const opt=document.createElement('option');opt.value=name;
+   opt.textContent=name+' ('+(byMajor.get(name)?.length||0)+' 河段)';
+   majorSelect.append(opt);
+  }
   for(const [name,coord] of Object.entries(points)){
    if(!Array.isArray(coord)||coord.length!==2)continue;
    const marker=L.circleMarker([coord[1],coord[0]],{radius:6,color:'#bc4a19',fillColor:'#f2ad45',fillOpacity:.75,weight:2});
