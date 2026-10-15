@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'scripts/build_osm_taiwan_educational.py'
+      - 'scripts/build_osm_taiwan_from_pbf.py'
       - '.github/workflows/p136-build-educational-rivers.yml'
   workflow_dispatch:
 permissions:
@@ -16,8 +17,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Download and build OSM named rivers
-        run: python scripts/build_osm_taiwan_educational.py --output data/educational/taiwan-named-rivers.geojson
+      - name: Install OSM PBF reader
+        run: python -m pip install osmium==4.1.1
+      - name: Download and build OSM named rivers from Taiwan extract
+        run: python scripts/build_osm_taiwan_from_pbf.py --output data/educational/taiwan-named-rivers.geojson
       - name: Commit generated educational river data
         run: |
           git config user.name "github-actions[bot]"
