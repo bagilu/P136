@@ -6,6 +6,10 @@ test('educational Taiwan river map renders OSM named reaches, outlets and clicka
  await expect(page.locator('#educationalRiverSelection')).toBeEmpty();
  await expect(page.locator('#educationalRiversVisible')).toBeChecked();
  await expect(page.locator('#educationalOutletsVisible')).toBeChecked();
+ await page.locator('#educationalMajorRiver').selectOption('淡水河');
+ await expect(page.locator('#educationalRiverSelection')).toContainText('淡水河');
+ await page.locator('#educationalRiverReset').click();
+ await expect(page.locator('#educationalMajorRiver')).toHaveValue('');
  const count=await page.evaluate(()=>Object.values(map._layers).filter(x=>x instanceof L.Polyline && x.options?.p136Default).length);
  expect(count).toBe(2867);
  const outlets=await page.evaluate(()=>Object.values(map._layers).filter(x=>x instanceof L.CircleMarker && x.options?.color==='#bc4a19').length);
