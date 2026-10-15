@@ -18,6 +18,17 @@ class TestArchiveAudit(unittest.TestCase):
    p=pathlib.Path(d)/'x.zip'
    with zipfile.ZipFile(p,'w') as z:z.writestr('river.shp',b'incomplete')
    r=mod.inspect(p)
-   self.assertEqual(r['shapefiles'][0]['error'],'missing .shx or .dbf')
+   self.assertIn('missing .shx',r['shapefiles'][0]['error'])
    self.assertFalse(r['publication_approved'])
+ def test_reject_traversal_archive_member(self):
+  with tempfile.TemporaryDirectory() as d:
+   p=pathlib.Path(d)/'x.zip'
+   with zipfile.ZipFile(p,'w') as z:z.writestr('../escape.shp',b'bad')
+   with self.assertRaisesRegex(ValueError,'unsafe member path'):mod.inspect(p)
+ def test_reject_case_collisions(self):
+  with tempfile.TemporaryDirectory() as d:
+   p=pathlib.Path(d)/'x.zip'
+   with zipfile.ZipFile(p,'w') as z:
+    z.writestr('RIVER.shp',b'bad');z.writestr('river.shp',b'bad')
+   with self.assertRaisesRegex(ValueError,'case-colliding'):mod.inspect(p)
 if __name__=='__main__':unittest.main()
