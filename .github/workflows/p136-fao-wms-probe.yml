@@ -1,0 +1,23 @@
+name: P136 FAO WMS Capability Probe
+on:
+  push:
+    paths:
+      - 'scripts/probe_fao_wms.py'
+      - '.github/workflows/p136-fao-wms-probe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/probe_fao_wms.py --output reports/fao-wms-capabilities.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: p136-fao-wms-capabilities
+          path: reports/fao-wms-capabilities.json
+          retention-days: 30
