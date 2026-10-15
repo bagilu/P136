@@ -19,6 +19,7 @@
  const status=document.getElementById('educationalRiverStatus');
  const selection=document.getElementById('educationalRiverSelection');
  const lines=L.layerGroup().addTo(map),outlets=L.layerGroup().addTo(map);
+ const riverRenderer=L.canvas({padding:.25});
  const lineToggle=document.getElementById('educationalRiversVisible');
  const outletToggle=document.getElementById('educationalOutletsVisible');
  let selected=null;
@@ -30,7 +31,7 @@
    const p=f.properties||{},main=!!p.major_river;
    const line=L.polyline(f.geometry.coordinates.map(c=>[c[1],c[0]]),{
     color:main?'#1672b7':'#6e9bb4',weight:main?3.5:2,opacity:main?.86:.7,
-    renderer:L.canvas({padding:.25})
+    renderer:riverRenderer
    });
    line.on('click',event=>{
     if(event.originalEvent)L.DomEvent.stopPropagation(event.originalEvent);
