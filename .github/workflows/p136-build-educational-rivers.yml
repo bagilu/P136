@@ -1,0 +1,25 @@
+name: P136 Build Taiwan Educational Rivers
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download and build OSM named rivers
+        run: python scripts/build_osm_taiwan_educational.py --output data/educational/taiwan-named-rivers.geojson
+      - name: Commit generated educational river data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/educational/taiwan-named-rivers.geojson
+          if git diff --cached --quiet; then echo "No data changes"; else
+            git commit -m "data(P136): publish OSM ODbL educational Taiwan named river lines"
+            git push
+          fi
