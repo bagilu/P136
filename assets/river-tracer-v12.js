@@ -24,7 +24,11 @@ function makeBranch(){if(!system)return msg('請先建立或匯入河系');const
  push();const id=newid('T');system.branches.push({id,name:name.trim(),kind:'tributary',nodeIds:[],connectedTo:null});active=id;setMode('draw');refresh();msg('支流已建立，請由上游向匯流點描繪 / Trace downstream toward confluence')}
 function coords(b){return b.nodeIds.map(id=>findNode(id)?.coord).filter(Boolean)}
 function rebuild(){
- system.reaches=[];for(const b of system.branches){for(let i=1;i<b.nodeIds.length;i++)system.reaches.push({id:newid('S'),branchId:b.id,from:b.nodeIds[i-1],to:b.nodeIds[i]})}
+ const prior=new Map(system.reaches.map(r=>[[r.branchId,r.from,r.to].join('|'),r.id]));
+ const next=[];for(const b of system.branches){for(let i=1;i<b.nodeIds.length;i++){
+ const from=b.nodeIds[i-1],to=b.nodeIds[i],key=[b.id,from,to].join('|');
+ next.push({id:prior.get(key)||newid('S'),branchId:b.id,from,to});
+ }}system.reaches=next;
 }
 function change(f){push();f();rebuild();refresh()}
 function refresh(){
