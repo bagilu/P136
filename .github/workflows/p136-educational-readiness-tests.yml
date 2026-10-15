@@ -1,0 +1,19 @@
+name: P136 Educational Readiness Tests
+on:
+  push:
+    paths:
+      - 'scripts/build_educational_readiness.py'
+      - 'tests/test_educational_readiness.py'
+      - '.github/workflows/p136-educational-readiness-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p test_educational_readiness.py -v
