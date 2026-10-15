@@ -1,9 +1,12 @@
 const {test,expect}=require('@playwright/test');
-test('V1.1 independent tracing studio supports point editing, outlet and GeoJSON export',async({page})=>{
+test('V1.2 independent tracing studio supports point editing, outlet and GeoJSON export',async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('/trace.html');
  await expect(page.locator('#map .leaflet-container, #map.leaflet-container')).toHaveCount(1);
  await page.locator('#river').fill('教學測試河川');
+ page.on('dialog',async d=>{if(d.type()==='prompt')await d.accept('901');else await d.accept()});
+ await page.locator('#newSystem').click();
+ await expect(page.locator('#systemId')).toHaveValue('P136-R901');
  await page.locator('#map').click({position:{x:180,y:180}});
  await page.locator('#map').click({position:{x:220,y:215}});
  await expect(page.locator('#points')).toContainText('2 個節點');
@@ -18,6 +21,6 @@ test('V1.1 independent tracing studio supports point editing, outlet and GeoJSON
  await expect(page.locator('#points')).toContainText('已標記近似出海口');
  const downloadPromise=page.waitForEvent('download');
  await page.locator('#export').click();
- const download=await downloadPromise;expect(download.suggestedFilename()).toBe('P136-river-draft.geojson');
+ const download=await downloadPromise;expect(download.suggestedFilename()).toBe('P136-R901.geojson');
  expect(errors).toEqual([]);
 });
